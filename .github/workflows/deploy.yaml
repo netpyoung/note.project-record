@@ -1,0 +1,32 @@
+name: Build and deploy GH Pages
+
+on: 
+ push:
+  branches:
+   - main
+
+jobs:
+  build:
+    name: Publish site
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      # ref: https://github.com/peaceiris/actions-mdbook
+      # - name: Setup mdBook
+      #   uses: peaceiris/actions-mdbook@v1
+      - name: Setup mdBook
+        uses: jontze/action-mdbook@v3
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          use-toc: true
+      - name: Build mdBook
+        run: |
+          mdbook build
+          touch ./book/.nojekyll
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./book
