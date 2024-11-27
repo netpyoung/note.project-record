@@ -1,0 +1,19 @@
+[book]
+title = "넷평의 프로젝트 기록"
+description = "note.project-record"
+authors = ["netpyoung"]
+language = "kr"
+multilingual = false
+src = "src"
+
+[preprocessor.toc]
+command = "mdbook-toc"
+renderer = ["html"]
+
+[output.html]
+additional-css = ["custom.css"]
+no-section-label = true
+site-url = "/note.project-record/"
+git-repository-url = "https://github.com/netpyoung/note.project-record"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/netpyoung/note.project-record/edit/main/{path}"
