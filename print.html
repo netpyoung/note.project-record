@@ -161,7 +161,13 @@
 <ul>
 <li><a href="./note/note.project-record.html">note.project-record</a></li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-unitywebp"><a class="header" href="#-unitywebp">🎨 unity.webp</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-unitylibsodium"><a class="header" href="#-unitylibsodium">🔑 unity.libsodium</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="-sqlcipher4unity3d"><a class="header" href="#-sqlcipher4unity3d">💾 SqlCipher4Unity3D</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nftoolunitypackage"><a class="header" href="#nftoolunitypackage">NF.Tool.UnityPackage</a></h1>
+<ul>
+<li><a href="https://github.com/netpyoung/NF.Tool.UnityPackage">https://github.com/netpyoung/NF.Tool.UnityPackage</a></li>
+</ul>
 <h2 id="시작하며"><a class="header" href="#시작하며">시작하며</a></h2>
 <ul>
 <li>유니티 패키지에 있는 파일들을 쉽게 확인하고 싶었다. (이미자, 사운드 등등)</li>
@@ -193,10 +199,13 @@
 <li><a href="https://discussions.unity.com/t/where-are-downloaded-asset-store-packages-stored-at/14129/20">https://discussions.unity.com/t/where-are-downloaded-asset-store-packages-stored-at/14129/20</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nftoolreleasenotemaker"><a class="header" href="#nftoolreleasenotemaker">NF.Tool.ReleaseNoteMaker</a></h1>
+<ul>
+<li><a href="https://github.com/netpyoung/NF.Tool.ReleaseNoteMaker">https://github.com/netpyoung/NF.Tool.ReleaseNoteMaker</a></li>
+</ul>
 <h2 id="시작하며-1"><a class="header" href="#시작하며-1">시작하며</a></h2>
 <ul>
-<li><a href="NF.Tool/../think/changelog-based-on-git-history.html">히스토리에서 뽑는건 별로</a></li>
-<li><a href="NF.Tool/../think/adr.html">ADR</a>같은 도구가 있으면 좋겠다.
+<li><a href="NF/../think/changelog-based-on-git-history.html">히스토리에서 뽑는건 별로</a></li>
+<li><a href="NF/../think/adr.html">ADR</a>같은 도구가 있으면 좋겠다.
 <ul>
 <li><a href="https://github.com/twisted/towncrier">towncrier</a>을 찾았다.</li>
 </ul>
@@ -229,6 +238,11 @@
 <ul>
 <li>Select는 있는데 SelectAll/DeselectAll이 없네</li>
 <li><a href="https://github.com/spectreconsole/spectre.console/discussions/700">https://github.com/spectreconsole/spectre.console/discussions/700</a></li>
+</ul>
+</li>
+<li>최대길이
+<ul>
+<li>AnsiConsole.Profile.Width = 255;</li>
 </ul>
 </li>
 </ul>
@@ -282,17 +296,107 @@
 </li>
 </ul>
 </li>
+<li>
+<p>line ending 문제</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Newline">https://en.wikipedia.org/wiki/Newline</a></li>
+</ul>
+</li>
+<li>
+<p>TestInitialize/TestCleanup/DeploymentItem/TestMethod</p>
+<ul>
+<li>DeploymentItem들이 TestInitialize보다 먼저 실행되는데 막상 TestContext.DeploymentDirectory는 동일해서 파일조작 테스트는 오작동을 일으킬 가능성이 생김.</li>
+<li>public required TestContext TestContext { get; set; } 로 가져와서 시작시 폴더이동.</li>
+</ul>
+</li>
+<li>
+<p>liquid</p>
+<ul>
+<li><a href="https://github.com/sebastienros/fluid">fluid</a> / <a href="https://github.com/scriban/scriban">scriban</a> / <a href="https://github.com/dotliquid/dotliquid">dotliquid</a>
+<ul>
+<li>dotliquid는 Drop만드는게 귀찮아서 패스</li>
+<li><a href="https://github.com/microsoft/semantic-kernel/issues/6233">https://github.com/microsoft/semantic-kernel/issues/6233</a> 에서 scriban대신 fluid쓰는거보고 fluid로 선택</li>
+</ul>
+</li>
+<li>liquid를 지원했으나 whitespace관리가 어렵고 fluid에서 class의 method호출이 안되었다.
+<ul>
+<li>안되서 {%- assign categoryIssues = category.GetAllIssues() -%}</li>
+<li>이렇게 함 {%- assign categoryIssues = category.CategoryIssues -%}</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>docfx</p>
+<ul>
+<li><code>[!INCLUDE [&lt;title&gt;](&lt;filepath&gt;)]</code>
+<ul>
+<li><a href="https://dotnet.github.io/docfx/docs/markdown.html?q=include&amp;tabs=linux%2Cdotnet#include-markdown-files">https://dotnet.github.io/docfx/docs/markdown.html?q=include&amp;tabs=linux%2Cdotnet#include-markdown-files</a></li>
+</ul>
+</li>
+<li><code>[!code-&lt;language&gt;[](&lt;filepath&gt;&lt;query-options&gt;)]</code>
+<ul>
+<li><a href="https://dotnet.github.io/docfx/docs/markdown.html?q=include&amp;tabs=linux%2Cdotnet#code-snippet">https://dotnet.github.io/docfx/docs/markdown.html?q=include&amp;tabs=linux%2Cdotnet#code-snippet</a></li>
+</ul>
+</li>
+<li><code>mermaid</code>
+<ul>
+<li><a href="https://dotnet.github.io/docfx/docs/markdown.html?tabs=linux%2Cdotnet#mermaid-diagrams">https://dotnet.github.io/docfx/docs/markdown.html?tabs=linux%2Cdotnet#mermaid-diagrams</a></li>
+</ul>
+</li>
+<li>NOTE / TIP / IMPORTANT / CAUTION / WARNING
+<ul>
+<li><a href="https://dotnet.github.io/docfx/docs/markdown.html?tabs=linux%2Cdotnet#alerts">https://dotnet.github.io/docfx/docs/markdown.html?tabs=linux%2Cdotnet#alerts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-txt">&gt; [!NOTE]
+&gt; Information the user should notice even if skimming.
+</code></pre>
+<ul>
+<li>pack 시 define flag를 알 수 없네..
+<ul>
+<li><a href="https://github.com/dotnet/sdk/issues/26324">https://github.com/dotnet/sdk/issues/26324</a>, <a href="https://github.com/dotnet/sdk/issues/10402">https://github.com/dotnet/sdk/issues/10402</a></li>
+</ul>
+</li>
+<li>reno라는 것도 있네?
+<ul>
+<li><a href="https://github.com/openstack/reno">https://github.com/openstack/reno</a></li>
+<li><a href="https://docs.openstack.org/reno/latest/">https://docs.openstack.org/reno/latest/</a></li>
+</ul>
+</li>
 </ul>
 <h2 id="잡다한"><a class="header" href="#잡다한">잡다한</a></h2>
 <ul>
 <li>filename =&gt; fileName</li>
 <li><a href="https://stackoverflow.com/questions/159017/named-string-formatting-in-c-sharp">https://stackoverflow.com/questions/159017/named-string-formatting-in-c-sharp</a></li>
-<li>textwrap</li>
+<li>python textwrap</li>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-11.0/raw-string-literal">https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-11.0/raw-string-literal</a></li>
+<li>러스트로 작성된 것도 있네?
+<ul>
+<li><a href="https://github.com/nekitdev/changelogging">https://github.com/nekitdev/changelogging</a>
+<ul>
+<li>draft대신 preview라는 명령어를 넣은건 좋은듯. <a href="https://docs.rs/changelogging/latest/changelogging/#preview">https://docs.rs/changelogging/latest/changelogging/#preview</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="-unitywebp"><a class="header" href="#-unitywebp">🎨 unity.webp</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="-unitylibsodium"><a class="header" href="#-unitylibsodium">🔑 unity.libsodium</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="-sqlcipher4unity3d"><a class="header" href="#-sqlcipher4unity3d">💾 SqlCipher4Unity3D</a></h1>
+</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="nfunitylibsmanagersassetbundlemanagement"><a class="header" href="#nfunitylibsmanagersassetbundlemanagement">nf.unitylibs.managers.assetbundlemanagement</a></h1>
+<ul>
+<li><a href="https://github.com/netpyoung/nf.unitylibs.managers.assetbundlemanagement">repo</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="nfunitylibsmanagerspatchmanagement"><a class="header" href="#nfunitylibsmanagerspatchmanagement">nf.unitylibs.managers.patchmanagement</a></h1>
+<ul>
+<li><a href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement">repo</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="nfunitytoolsessentials"><a class="header" href="#nfunitytoolsessentials">nf.unitytools.essentials</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="noteproject-record"><a class="header" href="#noteproject-record">note.project-record</a></h1>
+<ul>
+<li><a href="https://github.com/netpyoung/note.project-record">https://github.com/netpyoung/note.project-record</a></li>
+</ul>
 <h2 id="시작하며-2"><a class="header" href="#시작하며-2">시작하며</a></h2>
 <ul>
 <li>README.md에 써놓기에는 주저리 주저리 뒷썰같은 느낌.</li>
@@ -328,13 +432,26 @@ dev-journey
 <li><code>A</code>rchitecture <code>D</code>ecision <code>R</code>ecords (ADRs).</li>
 </ul>
 <h2 id="결론"><a class="header" href="#결론">결론</a></h2>
-<p>컨셉자체는 괜찮은데 짜잘짜잘한거까지 하면 스트레스.</p>
+<p>컨셉자체는 괜찮은데 짜잘짜잘한거까지 하면 스트레스. 분쟁이 일어날시 팀장역활 중요.</p>
 <h2 id="시도-1"><a class="header" href="#시도-1">시도</a></h2>
 <p>3명이서 해봤는데 adr 드라이븐을 강제해서 해봤다. 찬반으로 해서 결정하는건데 결정이 더 느리고 통과할때까지 문서만 바꾸느라 진도가 안나감.</p>
+<p>Title: 제목
+Decision: 결정
+Issue:
+Status: // proposed, accepted, rejected, deprecated, superseded
+Expected Result: 예상결과 / Consequences 결과</p>
+<p>버그노트
+현상
+추정
+과정
+원인
+해결책</p>
 <h2 id="ref-1"><a class="header" href="#ref-1">Ref:</a></h2>
 <ul>
 <li><a href="https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions">Documenting Architecture Decisions - Michael Nygard</a></li>
 <li><a href="https://github.com/npryce/adr-tools">npryce/adr-tools</a> - GPL</li>
+<li><a href="https://github.com/phodal/adr">https://github.com/phodal/adr</a> - MIT</li>
+<li><a href="https://github.com/joelparkerhenderson/architecture-decision-record">https://github.com/joelparkerhenderson/architecture-decision-record</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="변경내역을-깃-커밋-히스토리로-뽑는것에-대한"><a class="header" href="#변경내역을-깃-커밋-히스토리로-뽑는것에-대한">변경내역을 깃 커밋 히스토리로 뽑는것에 대한.</a></h1>
 <h2 id="결론-1"><a class="header" href="#결론-1">결론</a></h2>

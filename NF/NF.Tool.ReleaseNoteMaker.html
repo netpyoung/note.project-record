@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>💾 SqlCipher4Unity3D - 넷평의 프로젝트 기록</title>
+        <title>🌶️ NF.Tool.ReleaseNoteMaker - 넷평의 프로젝트 기록</title>
 
 
         <!-- Custom HTML head -->
@@ -130,7 +130,7 @@
                         <a href="https://github.com/netpyoung/note.project-record" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/netpyoung/note.project-record/edit/main/src/Unity/SqlCipher4Unity3D.md" title="Suggest an edit" aria-label="Suggest an edit">
+                        <a href="https://github.com/netpyoung/note.project-record/edit/main/src/NF/NF.Tool.ReleaseNoteMaker.md" title="Suggest an edit" aria-label="Suggest an edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
 
@@ -159,17 +159,202 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="-sqlcipher4unity3d"><a class="header" href="#-sqlcipher4unity3d">💾 SqlCipher4Unity3D</a></h1>
+                        <h1 id="nftoolreleasenotemaker"><a class="header" href="#nftoolreleasenotemaker">NF.Tool.ReleaseNoteMaker</a></h1>
+<ul>
+<li><a href="https://github.com/netpyoung/NF.Tool.ReleaseNoteMaker">https://github.com/netpyoung/NF.Tool.ReleaseNoteMaker</a></li>
+</ul>
+<h2 id="시작하며"><a class="header" href="#시작하며">시작하며</a></h2>
+<ul>
+<li><a href="../think/changelog-based-on-git-history.html">히스토리에서 뽑는건 별로</a></li>
+<li><a href="../think/adr.html">ADR</a>같은 도구가 있으면 좋겠다.
+<ul>
+<li><a href="https://github.com/twisted/towncrier">towncrier</a>을 찾았다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="기록"><a class="header" href="#기록">기록</a></h2>
+<ul>
+<li>
+<p>렌더템플릿 및 라이브러리 선택</p>
+<ul>
+<li>towncrier는 <a href="https://jinja.palletsprojects.com/">Jinja2</a></li>
+<li><a href="https://shopify.dev/docs/api/liquid">liquid</a> / razor / t4
+<ul>
+<li>디버깅 가능한걸로</li>
+<li>mono t4 디버깅 꽤 괜찮네, 근데 string넘기는게 아니라 filepath라 찝찝</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>AnsiConsole</p>
+<ul>
+<li>public override string StackTrace { get; } 안먹히는것.
+<ul>
+<li>이슈를 일단 남김 - <a href="https://github.com/spectreconsole/spectre.console/issues/1692">https://github.com/spectreconsole/spectre.console/issues/1692</a></li>
+</ul>
+</li>
+<li>stderr AnsiConsole 어떻게 처리할고</li>
+<li>MultiSelectionPrompt 해서 키를 입력받아 캔슬 넣고싶었는데 캔슬이 없네?
+<ul>
+<li>Select는 있는데 SelectAll/DeselectAll이 없네</li>
+<li><a href="https://github.com/spectreconsole/spectre.console/discussions/700">https://github.com/spectreconsole/spectre.console/discussions/700</a></li>
+</ul>
+</li>
+<li>최대길이
+<ul>
+<li>AnsiConsole.Profile.Width = 255;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>towncrier</p>
+<ul>
+<li>다이나믹 언어 타입 및 네이밍 문제 - 저쪽 세상 네이밍 센스 맘에 안듬.</li>
+</ul>
+</li>
+<li>
+<p>assemblyLocation empty</p>
+<ul>
+<li><code>&lt;IncludeAllContentForSelfExtract&gt;true&lt;/IncludeAllContentForSelfExtract&gt;</code></li>
+<li>이 옵션을 사용하면 애플리케이션의 모든 콘텐츠 파일(예: DLL, 구성 파일, 리소스 파일 등)이 실행 파일 내에 포함되어 실행 파일을 실행하면 자동으로 추출되고 실행됩니다.</li>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview?tabs=cli">https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview?tabs=cli</a></li>
+</ul>
+</li>
+<li>
+<p>PatchNoteMaker 했는데... ReleaseNoteMaker 도 있는데...</p>
+<ul>
+<li>PatchNoteMaker했다가 최종적으로 ReleaseNoteMaker로 결정.</li>
+</ul>
+</li>
+<li>
+<p>Tomlyn 사용법</p>
+<ul>
+<li>array를 키를 지정해서 dic으로 넣는 기능이 있으면 좋을것같은데...</li>
+</ul>
+</li>
+<li>
+<p>집합연산 까먹네</p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/linq/standard-query-operators/set-operations">https://learn.microsoft.com/en-us/dotnet/csharp/linq/standard-query-operators/set-operations</a></li>
+<li>표로 정리했다가 그냥 그때그때 검색하자. 나중에 필요하면 다시 표로정리.</li>
+</ul>
+</li>
+<li>
+<p>public void Deconstruct(out string fname, out string lname)</p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/deconstruct#user-defined-types">https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/functional/deconstruct#user-defined-types</a></li>
+</ul>
+</li>
+<li>
+<p>구조체 생성자 방지</p>
+<ul>
+<li>public ObsoleteAttribute(string? message, bool error)
+<ul>
+<li>throw new InvalidOperationException</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>line ending 문제</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Newline">https://en.wikipedia.org/wiki/Newline</a></li>
+</ul>
+</li>
+<li>
+<p>TestInitialize/TestCleanup/DeploymentItem/TestMethod</p>
+<ul>
+<li>DeploymentItem들이 TestInitialize보다 먼저 실행되는데 막상 TestContext.DeploymentDirectory는 동일해서 파일조작 테스트는 오작동을 일으킬 가능성이 생김.</li>
+<li>public required TestContext TestContext { get; set; } 로 가져와서 시작시 폴더이동.</li>
+</ul>
+</li>
+<li>
+<p>liquid</p>
+<ul>
+<li><a href="https://github.com/sebastienros/fluid">fluid</a> / <a href="https://github.com/scriban/scriban">scriban</a> / <a href="https://github.com/dotliquid/dotliquid">dotliquid</a>
+<ul>
+<li>dotliquid는 Drop만드는게 귀찮아서 패스</li>
+<li><a href="https://github.com/microsoft/semantic-kernel/issues/6233">https://github.com/microsoft/semantic-kernel/issues/6233</a> 에서 scriban대신 fluid쓰는거보고 fluid로 선택</li>
+</ul>
+</li>
+<li>liquid를 지원했으나 whitespace관리가 어렵고 fluid에서 class의 method호출이 안되었다.
+<ul>
+<li>안되서 {%- assign categoryIssues = category.GetAllIssues() -%}</li>
+<li>이렇게 함 {%- assign categoryIssues = category.CategoryIssues -%}</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>docfx</p>
+<ul>
+<li><code>[!INCLUDE [&lt;title&gt;](&lt;filepath&gt;)]</code>
+<ul>
+<li><a href="https://dotnet.github.io/docfx/docs/markdown.html?q=include&amp;tabs=linux%2Cdotnet#include-markdown-files">https://dotnet.github.io/docfx/docs/markdown.html?q=include&amp;tabs=linux%2Cdotnet#include-markdown-files</a></li>
+</ul>
+</li>
+<li><code>[!code-&lt;language&gt;[](&lt;filepath&gt;&lt;query-options&gt;)]</code>
+<ul>
+<li><a href="https://dotnet.github.io/docfx/docs/markdown.html?q=include&amp;tabs=linux%2Cdotnet#code-snippet">https://dotnet.github.io/docfx/docs/markdown.html?q=include&amp;tabs=linux%2Cdotnet#code-snippet</a></li>
+</ul>
+</li>
+<li><code>mermaid</code>
+<ul>
+<li><a href="https://dotnet.github.io/docfx/docs/markdown.html?tabs=linux%2Cdotnet#mermaid-diagrams">https://dotnet.github.io/docfx/docs/markdown.html?tabs=linux%2Cdotnet#mermaid-diagrams</a></li>
+</ul>
+</li>
+<li>NOTE / TIP / IMPORTANT / CAUTION / WARNING
+<ul>
+<li><a href="https://dotnet.github.io/docfx/docs/markdown.html?tabs=linux%2Cdotnet#alerts">https://dotnet.github.io/docfx/docs/markdown.html?tabs=linux%2Cdotnet#alerts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-txt">&gt; [!NOTE]
+&gt; Information the user should notice even if skimming.
+</code></pre>
+<ul>
+<li>pack 시 define flag를 알 수 없네..
+<ul>
+<li><a href="https://github.com/dotnet/sdk/issues/26324">https://github.com/dotnet/sdk/issues/26324</a>, <a href="https://github.com/dotnet/sdk/issues/10402">https://github.com/dotnet/sdk/issues/10402</a></li>
+</ul>
+</li>
+<li>reno라는 것도 있네?
+<ul>
+<li><a href="https://github.com/openstack/reno">https://github.com/openstack/reno</a></li>
+<li><a href="https://docs.openstack.org/reno/latest/">https://docs.openstack.org/reno/latest/</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="잡다한"><a class="header" href="#잡다한">잡다한</a></h2>
+<ul>
+<li>filename =&gt; fileName</li>
+<li><a href="https://stackoverflow.com/questions/159017/named-string-formatting-in-c-sharp">https://stackoverflow.com/questions/159017/named-string-formatting-in-c-sharp</a></li>
+<li>python textwrap</li>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-11.0/raw-string-literal">https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-11.0/raw-string-literal</a></li>
+<li>러스트로 작성된 것도 있네?
+<ul>
+<li><a href="https://github.com/nekitdev/changelogging">https://github.com/nekitdev/changelogging</a>
+<ul>
+<li>draft대신 preview라는 명령어를 넣은건 좋은듯. <a href="https://docs.rs/changelogging/latest/changelogging/#preview">https://docs.rs/changelogging/latest/changelogging/#preview</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../Unity/unity.libsodium.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../NF/NF.Tool.UnityPackage.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../NF/NF.Tool.UnityPackage.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../NF/nf.unitylibs.managers.assetbundlemanagement.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -179,11 +364,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../Unity/unity.libsodium.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../NF/NF.Tool.UnityPackage.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../NF/NF.Tool.UnityPackage.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../NF/nf.unitylibs.managers.assetbundlemanagement.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
