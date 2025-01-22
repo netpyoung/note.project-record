@@ -1,5 +1,7 @@
 # note.project-record
 
+- <https://github.com/netpyoung/note.project-record>
+
 ## 시작하며
 
 - README.md에 써놓기에는 주저리 주저리 뒷썰같은 느낌.

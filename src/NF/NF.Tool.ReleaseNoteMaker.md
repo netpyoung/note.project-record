@@ -1,5 +1,7 @@
 # NF.Tool.ReleaseNoteMaker
 
+- <https://github.com/netpyoung/NF.Tool.ReleaseNoteMaker>
+
 ## 시작하며
 
 - [히스토리에서 뽑는건 별로](../think/changelog-based-on-git-history.md)
@@ -21,6 +23,9 @@
   - MultiSelectionPrompt 해서 키를 입력받아 캔슬 넣고싶었는데 캔슬이 없네?
     - Select는 있는데 SelectAll/DeselectAll이 없네
     - <https://github.com/spectreconsole/spectre.console/discussions/700>
+  - 최대길이
+    - AnsiConsole.Profile.Width = 255;
+
 
 - towncrier
   - 다이나믹 언어 타입 및 네이밍 문제 - 저쪽 세상 네이밍 센스 맘에 안듬.
@@ -45,11 +50,48 @@
   - public ObsoleteAttribute(string? message, bool error)
     - throw new InvalidOperationException
 
+- line ending 문제
+  - <https://en.wikipedia.org/wiki/Newline>
+- TestInitialize/TestCleanup/DeploymentItem/TestMethod
+  - DeploymentItem들이 TestInitialize보다 먼저 실행되는데 막상 TestContext.DeploymentDirectory는 동일해서 파일조작 테스트는 오작동을 일으킬 가능성이 생김.
+  - public required TestContext TestContext { get; set; } 로 가져와서 시작시 폴더이동.
+- liquid
+  - [fluid](https://github.com/sebastienros/fluid) / [scriban](https://github.com/scriban/scriban) / [dotliquid](https://github.com/dotliquid/dotliquid)
+    - dotliquid는 Drop만드는게 귀찮아서 패스
+    - <https://github.com/microsoft/semantic-kernel/issues/6233> 에서 scriban대신 fluid쓰는거보고 fluid로 선택
+  - liquid를 지원했으나 whitespace관리가 어렵고 fluid에서 class의 method호출이 안되었다.
+    - 안되서 {%- assign categoryIssues = category.GetAllIssues() -%}
+    - 이렇게 함 {%- assign categoryIssues = category.CategoryIssues -%}
+- docfx
+  - `[!INCLUDE [<title>](<filepath>)]`
+    - <https://dotnet.github.io/docfx/docs/markdown.html?q=include&tabs=linux%2Cdotnet#include-markdown-files>
+  - `[!code-<language>[](<filepath><query-options>)]`
+    - <https://dotnet.github.io/docfx/docs/markdown.html?q=include&tabs=linux%2Cdotnet#code-snippet>
+  - `mermaid`
+    - <https://dotnet.github.io/docfx/docs/markdown.html?tabs=linux%2Cdotnet#mermaid-diagrams>
+  - NOTE / TIP / IMPORTANT / CAUTION / WARNING
+    - <https://dotnet.github.io/docfx/docs/markdown.html?tabs=linux%2Cdotnet#alerts>
+
+``` txt
+> [!NOTE]
+> Information the user should notice even if skimming.
+```
+
+- pack 시 define flag를 알 수 없네..
+  - <https://github.com/dotnet/sdk/issues/26324>, <https://github.com/dotnet/sdk/issues/10402>
+- reno라는 것도 있네?
+  - <https://github.com/openstack/reno>
+  - <https://docs.openstack.org/reno/latest/>
+
 ## 잡다한
 
 - filename => fileName
 - <https://stackoverflow.com/questions/159017/named-string-formatting-in-c-sharp>
-- textwrap
+- python textwrap
+- <https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-11.0/raw-string-literal>
+- 러스트로 작성된 것도 있네?
+  - <https://github.com/nekitdev/changelogging>
+    - draft대신 preview라는 명령어를 넣은건 좋은듯. <https://docs.rs/changelogging/latest/changelogging/#preview>
 
 
 [towncrier]: https://github.com/twisted/towncrier
