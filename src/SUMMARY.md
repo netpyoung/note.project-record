@@ -12,8 +12,10 @@
 
 - [🌶️ NF.Tool.UnityPackage](./NF/NF.Tool.UnityPackage.md)
 - [🌶️ NF.Tool.ReleaseNoteMaker](./NF/NF.Tool.ReleaseNoteMaker.md)
+  - [nf-tool-release-note-maker-vscode](./NF/nf-tool-release-note-maker-vscode.md)
 - [nf.unitylibs.managers.assetbundlemanagement](./NF/nf.unitylibs.managers.assetbundlemanagement.md)
 - [nf.unitylibs.managers.patchmanagement](./NF/nf.unitylibs.managers.patchmanagement.md)
+- [nf.unitylibs.managers.resourcesextra](./NF/nf.unitylibs.managers.resourcesextra.md)
 - [nf.unitytools.essentials](./nf/nf.unitytools.essentials.md)
 
 # ✒️ 노트

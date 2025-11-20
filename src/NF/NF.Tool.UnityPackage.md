@@ -31,3 +31,22 @@
 ## Ref
 
 - <https://discussions.unity.com/t/where-are-downloaded-asset-store-packages-stored-at/14129/20>
+
+
+
+
+tar-cs https://code.google.com/archive/p/tar-cs/
+https://learn.microsoft.com/ko-kr/dotnet/api/system.formats.tar.tarfile?view=net-8.0
+
+unity yaml이 key:value쌍이 맞지 않는 것도 있음. YamlDotNet https://github.com/aaubry/YamlDotNet 에서 파싱 오류 - 엄격한 검사
+
+https://github.com/TwoTenPvP/UnityPackager 기반
+
+avaloniaui 한번 적용해봤으나 Winform버전은 800Kb 언더라면, avaloniaui로 40Mb 가 나옴.
+
+
+https://github.com/icsharpcode/SharpZipLib
+SharpZipLib을 System.Formats.Tar - TarFile로 대채
+YamlDotNet 파싱 오류도 있고, 어차피 guid만 얻어오는 부분만 쓰고 있어서 YamlDotNet을 걷어내니
+
+- 800kb가 200kb로 줄어듬
