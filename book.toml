@@ -14,5 +14,4 @@ additional-css = ["custom.css"]
 no-section-label = true
 site-url = "/note.project-record/"
 git-repository-url = "https://github.com/netpyoung/note.project-record"
-git-repository-icon = "fa-github"
 edit-url-template = "https://github.com/netpyoung/note.project-record/edit/main/{path}"
