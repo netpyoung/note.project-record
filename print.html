@@ -8,29 +8,37 @@
 
 
         <!-- Custom HTML head -->
-
+        <!-- #region: Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-855BJNV9VD"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-855BJNV9VD');
+        </script>
+        <!-- #endregion: Google tag (gtag.js) -->
         <meta name="description" content="note.project-record">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="custom.css">
+        <link rel="stylesheet" href="custom-af936341.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,12 +46,24 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-e8da943a.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-07df6a44.js"></script>
     </head>
     <body>
-    <div id="body-container">
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -72,56 +92,59 @@
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
                         </button>
                     </div>
 
@@ -129,45 +152,65 @@
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
                         <a href="https://github.com/netpyoung/note.project-record" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
                         </a>
 
                     </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="들어가며"><a class="header" href="#들어가며">들어가며</a></h1>
 <ul>
-<li><a href="./note/note.project-record.html">note.project-record</a></li>
+<li><a href="#noteproject-record">note.project-record</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="-unitywebp"><a class="header" href="#-unitywebp">🎨 unity.webp</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="-unitylibsodium"><a class="header" href="#-unitylibsodium">🔑 unity.libsodium</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="-sqlcipher4unity3d"><a class="header" href="#-sqlcipher4unity3d">💾 SqlCipher4Unity3D</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="nftoolunitypackage"><a class="header" href="#nftoolunitypackage">NF.Tool.UnityPackage</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="-unitywebp"><a class="header" href="#-unitywebp">🎨 unity.webp</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="-unitylibsodium"><a class="header" href="#-unitylibsodium">🔑 unity.libsodium</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="-sqlcipher4unity3d"><a class="header" href="#-sqlcipher4unity3d">💾 SqlCipher4Unity3D</a></h1>
+<ul>
+<li><a href="https://www.zetetic.net/sqlcipher/">sqlcipher</a></li>
+<li><a href="https://github.com/robertohuertasm/SQLite4Unity3d">robertohuertasm/SQLite4Unity3d</a></li>
+<li><a href="https://github.com/praeclarum/sqlite-net">praeclarum/sqlite-net</a></li>
+</ul>
+<p>https://github.com/sqlkata/querybuilder/</p>
+<ul>
+<li><a href="https://www.litedb.org/">litedb</a></li>
+<li><a href="https://github.com/Cysharp/MasterMemory">Cysharp/MasterMemory</a></li>
+</ul>
+<p>https://netpyoung.github.io/study.dotnet/dotnet/PInvoke.html 참고</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="nftoolunitypackage"><a class="header" href="#nftoolunitypackage">NF.Tool.UnityPackage</a></h1>
 <ul>
 <li><a href="https://github.com/netpyoung/NF.Tool.UnityPackage">https://github.com/netpyoung/NF.Tool.UnityPackage</a></li>
 </ul>
@@ -186,11 +229,17 @@
 </li>
 </ul>
 <h2 id="unitypackage경로"><a class="header" href="#unitypackage경로">unitypackage경로</a></h2>
-<div class="table-wrapper"><table><thead><tr><th>os</th><th>path</th></tr></thead><tbody>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>os</th><th>path</th></tr>
+</thead>
+<tbody>
 <tr><td>win</td><td>C:\Users{User}\AppData\Roaming\Unity\Asset Store-5.x</td></tr>
 <tr><td>mac</td><td>~/Library/Unity/Asset\ Store/</td></tr>
 <tr><td>linux</td><td>~/.local/share/unity3d/Asset Store-5.x/</td></tr>
-</tbody></table>
+</tbody>
+</table>
 </div>
 <h2 id="기타"><a class="header" href="#기타">기타</a></h2>
 <ul>
@@ -201,33 +250,34 @@
 <ul>
 <li><a href="https://discussions.unity.com/t/where-are-downloaded-asset-store-packages-stored-at/14129/20">https://discussions.unity.com/t/where-are-downloaded-asset-store-packages-stored-at/14129/20</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="nftoolreleasenotemaker"><a class="header" href="#nftoolreleasenotemaker">NF.Tool.ReleaseNoteMaker</a></h1>
+<p>tar-cs https://code.google.com/archive/p/tar-cs/
+https://learn.microsoft.com/ko-kr/dotnet/api/system.formats.tar.tarfile?view=net-8.0</p>
+<p>unity yaml이 key:value쌍이 맞지 않는 것도 있음. YamlDotNet https://github.com/aaubry/YamlDotNet 에서 파싱 오류 - 엄격한 검사</p>
+<p>https://github.com/TwoTenPvP/UnityPackager 기반</p>
+<p>avaloniaui 한번 적용해봤으나 Winform버전은 800Kb 언더라면, avaloniaui로 40Mb 가 나옴.</p>
+<p>https://github.com/icsharpcode/SharpZipLib
+SharpZipLib을 System.Formats.Tar - TarFile로 대채
+YamlDotNet 파싱 오류도 있고, 어차피 guid만 얻어오는 부분만 쓰고 있어서 YamlDotNet을 걷어내니</p>
+<ul>
+<li>800kb가 200kb로 줄어듬</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="nftoolreleasenotemaker"><a class="header" href="#nftoolreleasenotemaker">NF.Tool.ReleaseNoteMaker</a></h1>
 <ul>
 <li><a href="https://github.com/netpyoung/NF.Tool.ReleaseNoteMaker">https://github.com/netpyoung/NF.Tool.ReleaseNoteMaker</a></li>
 </ul>
 <h2 id="시작하며-1"><a class="header" href="#시작하며-1">시작하며</a></h2>
 <ul>
-<li><a href="NF/../think/changelog-based-on-git-history.html">히스토리에서 뽑는건 별로</a></li>
-<li><a href="NF/../think/adr.html">ADR</a>같은 도구가 있으면 좋겠다.
+<li><a href="#변경내역을-깃-커밋-히스토리로-뽑는것에-대한">히스토리에서 뽑는건 별로</a></li>
+<li><a href="#adr">ADR</a>같은 도구가 있으면 좋겠다.
 <ul>
 <li><a href="https://github.com/twisted/towncrier">towncrier</a>을 찾았다.</li>
 </ul>
 </li>
 </ul>
 <h2 id="기록"><a class="header" href="#기록">기록</a></h2>
+<h3 id="라이브러리-결정"><a class="header" href="#라이브러리-결정">라이브러리 결정</a></h3>
 <ul>
-<li>
-<p>렌더템플릿 및 라이브러리 선택</p>
-<ul>
-<li>towncrier는 <a href="https://jinja.palletsprojects.com/">Jinja2</a></li>
-<li><a href="https://shopify.dev/docs/api/liquid">liquid</a> / razor / t4
-<ul>
-<li>디버깅 가능한걸로</li>
-<li>mono t4 디버깅 꽤 괜찮네, 근데 string넘기는게 아니라 filepath라 찝찝</li>
-</ul>
-</li>
-</ul>
-</li>
 <li>
 <p>AnsiConsole</p>
 <ul>
@@ -251,29 +301,9 @@
 </ul>
 </li>
 <li>
-<p>towncrier</p>
-<ul>
-<li>다이나믹 언어 타입 및 네이밍 문제 - 저쪽 세상 네이밍 센스 맘에 안듬.</li>
-</ul>
-</li>
-<li>
-<p>assemblyLocation empty</p>
-<ul>
-<li><code>&lt;IncludeAllContentForSelfExtract&gt;true&lt;/IncludeAllContentForSelfExtract&gt;</code></li>
-<li>이 옵션을 사용하면 애플리케이션의 모든 콘텐츠 파일(예: DLL, 구성 파일, 리소스 파일 등)이 실행 파일 내에 포함되어 실행 파일을 실행하면 자동으로 추출되고 실행됩니다.</li>
-<li><a href="https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview?tabs=cli">https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview?tabs=cli</a></li>
-</ul>
-</li>
-<li>
-<p>PatchNoteMaker 했는데... ReleaseNoteMaker 도 있는데...</p>
-<ul>
-<li>PatchNoteMaker했다가 최종적으로 ReleaseNoteMaker로 결정.</li>
-</ul>
-</li>
-<li>
 <p>Tomlyn 사용법</p>
 <ul>
-<li>array를 키를 지정해서 dic으로 넣는 기능이 있으면 좋을것같은데...</li>
+<li>array를 키를 지정해서 dic으로 넣는 기능이 있으면 좋을것같은데…</li>
 </ul>
 </li>
 <li>
@@ -299,22 +329,30 @@
 </li>
 </ul>
 </li>
-<li>
-<p>line ending 문제</p>
+</ul>
+<h3 id="렌더템플릿-및-라이브러리-선택"><a class="header" href="#렌더템플릿-및-라이브러리-선택">렌더템플릿 및 라이브러리 선택</a></h3>
+<p>visual studio에서 디버깅이 되는거에 가중치를 많이 줌.</p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Newline">https://en.wikipedia.org/wiki/Newline</a></li>
+<li>t4
+<ul>
+<li>디버깅 가능한걸로</li>
+<li>mono t4 디버깅 꽤 괜찮네, 근데 string넘기는게 아니라 filepath라 찝찝</li>
 </ul>
 </li>
-<li>
-<p>TestInitialize/TestCleanup/DeploymentItem/TestMethod</p>
+<li>razor
 <ul>
-<li>DeploymentItem들이 TestInitialize보다 먼저 실행되는데 막상 TestContext.DeploymentDirectory는 동일해서 파일조작 테스트는 오작동을 일으킬 가능성이 생김.</li>
-<li>public required TestContext TestContext { get; set; } 로 가져와서 시작시 폴더이동.</li>
+<li>아직 관리가 되지 않는듯 : https://github.com/adoconnection/RazorEngineCore/pull/148</li>
+<li>razor로도 template만들어 봤는데 의외로 t4보다 가시성이 안좋았다.</li>
 </ul>
 </li>
-<li>
-<p>liquid</p>
+<li><a href="https://shopify.dev/docs/api/liquid">liquid</a></li>
+<li>towncrier는 <a href="https://jinja.palletsprojects.com/">Jinja2</a></li>
+<li>일단 liquid를 넣긴 넣었는데 t4가 더 나아보여서 삭제할까 보류중 =&gt; 혹시나 다른 사람들이 쓰면 돌이키기 힘드니 빠른 삭제로 결정.
 <ul>
+<li><a href="https://github.com/netpyoung/NF.Tool.ReleaseNoteMaker/blob/3980c961869794b69bc01e7d5637e73570f2111c/NF.Tool.ReleaseNoteMaker/NF.Tool.ReleaseNoteMaker.CLI/res/Template.liquid">Template.liquid</a></li>
+<li><a href="https://github.com/netpyoung/NF.Tool.ReleaseNoteMaker/blob/3980c961869794b69bc01e7d5637e73570f2111c/NF.Tool.ReleaseNoteMaker/NF.Tool.ReleaseNoteMaker.CLI/res/Template.tt">Template.tt</a></li>
+</ul>
+</li>
 <li><a href="https://github.com/sebastienros/fluid">fluid</a> / <a href="https://github.com/scriban/scriban">scriban</a> / <a href="https://github.com/dotliquid/dotliquid">dotliquid</a>
 <ul>
 <li>dotliquid는 Drop만드는게 귀찮아서 패스</li>
@@ -327,6 +365,43 @@
 <li>이렇게 함 {%- assign categoryIssues = category.CategoryIssues -%}</li>
 </ul>
 </li>
+</ul>
+<h3 id="네이밍"><a class="header" href="#네이밍">네이밍</a></h3>
+<ul>
+<li>
+<p>towncrier</p>
+<ul>
+<li>다이나믹 언어 타입 및 네이밍 문제 - 저쪽 세상 네이밍 센스 맘에 안듬.</li>
+</ul>
+</li>
+<li>
+<p>PatchNoteMaker 했는데… ReleaseNoteMaker 도 있는데…</p>
+<ul>
+<li>PatchNoteMaker했다가 최종적으로 ReleaseNoteMaker로 결정.</li>
+</ul>
+</li>
+</ul>
+<h3 id="기타-1"><a class="header" href="#기타-1">기타</a></h3>
+<ul>
+<li>
+<p>assemblyLocation empty</p>
+<ul>
+<li><code>&lt;IncludeAllContentForSelfExtract&gt;true&lt;/IncludeAllContentForSelfExtract&gt;</code></li>
+<li>이 옵션을 사용하면 애플리케이션의 모든 콘텐츠 파일(예: DLL, 구성 파일, 리소스 파일 등)이 실행 파일 내에 포함되어 실행 파일을 실행하면 자동으로 추출되고 실행됩니다.</li>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview?tabs=cli">https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview?tabs=cli</a></li>
+</ul>
+</li>
+<li>
+<p>line ending 문제</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Newline">https://en.wikipedia.org/wiki/Newline</a></li>
+</ul>
+</li>
+<li>
+<p>TestInitialize/TestCleanup/DeploymentItem/TestMethod</p>
+<ul>
+<li>DeploymentItem들이 TestInitialize보다 먼저 실행되는데 막상 TestContext.DeploymentDirectory는 동일해서 파일조작 테스트는 오작동을 일으킬 가능성이 생김.</li>
+<li>public required TestContext TestContext { get; set; } 로 가져와서 시작시 폴더이동.</li>
 </ul>
 </li>
 <li>
@@ -371,6 +446,16 @@
 </ul>
 </li>
 </ul>
+<h3 id="tt-vs-t4"><a class="header" href="#tt-vs-t4">.tt vs .t4</a></h3>
+<ul>
+<li>확장자를 .tt로 했다가 t4로 했다가 다시 tt로.
+<ul>
+<li>처음에 찾아봤을때 t4 template가 어감에 감겨 찾아봤다가 .tt가 많이 쓰인다는 사실을 알고 .tt로 결정</li>
+<li>후에 까먹어서 왜 .tt야라고 생각하고 t4가 맘에 들어서 .t4로 변경</li>
+<li>후에 또 뭔가 쌔해서 다시 찾아보고 .tt로 롤백</li>
+</ul>
+</li>
+</ul>
 <h2 id="잡다한"><a class="header" href="#잡다한">잡다한</a></h2>
 <ul>
 <li>filename =&gt; fileName</li>
@@ -386,21 +471,627 @@
 </li>
 </ul>
 </li>
+<li>https://github.com/twisted/towncrier
+<ul>
+<li>https://devguide.python.org/core-team/committing/index.html#what-s-new-and-news-entries</li>
+<li>https://docs.gitlab.com/development/changelog/</li>
+<li>https://github.com/miniscruff/changie</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="nfunitylibsmanagersassetbundlemanagement"><a class="header" href="#nfunitylibsmanagersassetbundlemanagement">nf.unitylibs.managers.assetbundlemanagement</a></h1>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="nf-tool-release-note-maker-vscode"><a class="header" href="#nf-tool-release-note-maker-vscode">nf-tool-release-note-maker-vscode</a></h1>
+<ul>
+<li>https://marketplace.visualstudio.com/items?itemName=netpyoung.nf-tool-release-note-maker-vscode</li>
+<li>https://github.com/netpyoung/nf-tool-release-note-maker-vscode</li>
+</ul>
+<h2 id="시작하며-2"><a class="header" href="#시작하며-2">시작하며</a></h2>
+<ul>
+<li><a href="#nftoolreleasenotemaker">NF.Tool.ReleaseNoteMaker</a>을 커맨드라인으로 확인하려니 불편
+<ul>
+<li>에디터는 VSCode가 대세</li>
+</ul>
+</li>
+</ul>
+<h2 id="참고"><a class="header" href="#참고">참고</a></h2>
+<ul>
+<li><a href="https://code.visualstudio.com/api/get-started/your-first-extension">get-started/your-first-extension</a></li>
+<li><a href="https://yeoman.io/">yeoman</a>
+<ul>
+<li>템플릿 기반 프로젝트 생성기(스캐폴딩 도구)</li>
+</ul>
+</li>
+<li><code>npx --package yo --package generator-code -- yo code</code>
+<ul>
+<li>yo, generator-code 패키지를 활용하면서 yo code 명령어 실행</li>
+</ul>
+</li>
+<li><a href="https://github.com/microsoft/vscode-generator-code">microsoft/vscode-generator-code</a>
+<ul>
+<li>아직 bun을 지원안하네 https://github.com/microsoft/vscode-generator-code/pull/475</li>
+</ul>
+</li>
+<li><a href="https://github.com/microsoft/vscode-vsce">microsoft/vscode-vsce</a>
+<ul>
+<li>@vscode/vsce</li>
+<li>The Visual Studio Code Extension Manager</li>
+<li>Access Token 생성 - https://azure.microsoft.com/services/devops/</li>
+<li>Publisher 등록 - https://marketplace.visualstudio.com/manage/createpublisher
+<ul>
+<li>https://marketplace.visualstudio.com/VSCode &gt; Publish extensions &gt; Create Publisher</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="기록-1"><a class="header" href="#기록-1">기록</a></h2>
+<h3 id="배포"><a class="header" href="#배포">배포</a></h3>
+<p>vsce package - 패키지 파일로 만듬 - 후 에 파일을 통해서 배포도 가능
+vsce login <publishername>
+vsce publish - 바로배포</publishername></p>
+<ul>
+<li>publish대신 vsce package 로 패키지 파일을 사이트에서 수동 업로드.
+<ul>
+<li>뭔가 마음이 놓인다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="네이밍-실수-nf-tools-release-note-maker-vscode--nf-tool-release-note-maker-vscode"><a class="header" href="#네이밍-실수-nf-tools-release-note-maker-vscode--nf-tool-release-note-maker-vscode">네이밍 실수 nf-tools-release-note-maker-vscode =&gt; nf-tool-release-note-maker-vscode</a></h3>
+<ul>
+<li>나는 툴에 대해 단수 tool을 썼는데 까먹고 복수형인 tools를 붙여버렸다.</li>
+<li>nf-tools-release-note-maker-vscode - NF.Tool.ReleaseNoteMaker 이름이 안맞는 문제가 생겼는데,
+<ul>
+<li>vscode extension market에 올려져 있어 그냥 유지할까 생각도 했지만,</li>
+<li>인스톨횟수가 2회(내가 테스트용으로 한것)밖에 없고,</li>
+<li>nuget과는 달리 삭제가 가능해서 과감히 삭제후 이름바꾸고 다시 마켓에 업로드</li>
+<li>처음 tools로 업로드 했을시에는 5분만에 Verifing이 끝나더니만, 이전 툴을 삭제하고 바로 tool로 올린 탓인지 1시간 정도 걸렸네</li>
+</ul>
+</li>
+</ul>
+<h3 id="폴더구조를-바꾸려니-symbolic-link가-필요하네"><a class="header" href="#폴더구조를-바꾸려니-symbolic-link가-필요하네">폴더구조를 바꾸려니 symbolic link가 필요하네</a></h3>
+<p>New-Item -ItemType SymbolicLink -Path “./nf-tools-release-note-maker-vscode/README.md” -Target “../README.md”
+New-Item -ItemType SymbolicLink -Path “./nf-tools-release-note-maker-vscode/LICENSE.md” -Target “../LICENSE.md”
+New-Item -ItemType SymbolicLink -Path “./nf-tools-release-note-maker-vscode/CHANGELOG.md” -Target “../CHANGELOG.md”</p>
+<h3 id="vscode-멀티인풋을-하려면-webview가-필요하네"><a class="header" href="#vscode-멀티인풋을-하려면-webview가-필요하네">VSCode 멀티인풋을 하려면 webview가 필요하네</a></h3>
+<ul>
+<li>https://github.com/Microsoft/vscode-extension-samples/tree/main/webview-sample</li>
+<li>framework가져다 쓸까하다가 그냥 gpt한테 심플하게 만들어달라고 해서 만듬
+<ul>
+<li>https://github.com/microsoft/vscode-webview-ui-toolkit - deprecated</li>
+<li>https://vscode-elements.github.io/</li>
+<li>https://github.com/vscode-elements/elements</li>
+<li>https://fast.design/</li>
+<li>https://lit.dev/</li>
+</ul>
+</li>
+</ul>
+<p>webview event</p>
+<pre><code class="language-html">      &lt;script&gt;
+        const vscode = acquireVsCodeApi();
+
+        // 1) 버튼 클릭 시 확장으로 메시지 보내기
+        document.getElementById('send').addEventListener('click', () =&gt; {
+          vscode.postMessage({ command: 'alert', text: 'Hello from Webview!' });
+        });
+
+        // 2) 확장에서 온 메시지 받기
+        window.addEventListener('message', event =&gt; {
+          const message = event.data;
+          switch (message.command) {
+            case 'init':
+              console.log('Message from extension:', message.data);
+              break;
+          }
+        });
+      &lt;/script&gt;
+</code></pre>
+<h3 id="기타-2"><a class="header" href="#기타-2">기타</a></h3>
+<ul>
+<li>흠 나중에 wasm파일 쓸 일 있으면 한번 여기서 테스트 해보고 싶네</li>
+</ul>
+<p>activationEvents는 정적으로만 지정 가능 → configuration 기반 동적 활성화는 불가</p>
+<p>폴더에 파일이 존재하면 메뉴가 생겨서 우클릭해서 확인하고싶었지만, Explorer에서 폴더를 선택할 때마다 발생하는 이벤트는 없음</p>
+<p>ReleaseNote.config.toml 우클릭 임시파일에 preview를 쓰고 마크다운 렌더</p>
+<p>resourceFilename == ReleaseNote.config.toml</p>
+<p>ReleaseNote.config.toml를 config쪽으로 빼야겠네</p>
+<p>https://code.visualstudio.com/api/references/when-clause-contexts#inspect-context-keys-utility</p>
+<p>bun add –global yo generator-code</p>
+<p>yo code Hello2 –extensionType=ts –pkgManager=npm –skip-install –gitInit=true –bundler=esbuild –skipOpen</p>
+<p>node_modules/@types/vscode/index.d.ts.</p>
+<p>package.json
+“contributes”: {
+“commands”: [
+{
+“command”: “helloworld.helloWorld”,
+“title”: “Hello World”
+}
+]
+},</p>
+<p>const disposable = vscode.commands.registerCommand(‘helloworld.helloWorld’, () =&gt; {
+vscode.window.showInformationMessage(‘Hello World!’);
+});</p>
+<p>context.subscriptions.push(disposable);</p>
+<p>https://github.com/shd101wyy/markdown-preview-enhanced</p>
+<p>https://github.com/dev-jonghoonpark/ettk-vscode-extention/</p>
+<p>“menus”: {
+“explorer/context”: [
+{
+“command”: “myExtension.processFolder”,
+“when”: “explorerResourceIsFolder”,
+“group”: “navigation”
+}
+]
+}</p>
+<p>https://esbuild.github.io/
+https://github.com/evanw/esbuild</p>
+<p>https://bun.com/docs/bundler/esbuild</p>
+<ul>
+<li>Error: Invalid problemMatcher reference: $esbuild-watch
+<ul>
+<li>https://marketplace.visualstudio.com/items?itemName=connor4312.esbuild-problem-matchers</li>
+</ul>
+</li>
+</ul>
+<p>.vscodeignore - VS Code 확장(VSIX) 배포용 필터 파일</p>
+<p>.vscode/extensions.json
+“recommendations”: [“dbaeumer.vscode-eslint”, “connor4312.esbuild-problem-matchers”, “ms-vscode.extension-test-runner”]</p>
+<p>when 조건식은 정적 컨텍스트키만 됨
+https://code.visualstudio.com/api/references/when-clause-contexts</p>
+<ul>
+<li>when 조건식 기반</li>
+<li>setContext 기반
+https://code.visualstudio.com/api/references/commands</li>
+</ul>
+<p>resourceExtname</p>
+<p>https://code.visualstudio.com/docs/languages/markdown</p>
+<p>await vscode.commands.executeCommand(‘markdown.showPreviewToSide’, tmpUri);</p>
+<p>await vscode.commands.executeCommand(‘markdown-preview-enhanced.openPreview’, doc.uri);</p>
+<p>https://github.com/BetterThanTomorrow/joyride 도 있네</p>
+<p>“activationEvents”: [“onStartupFinished”],</p>
+<p>https://code.visualstudio.com/api/references/activation-events#workspaceContains</p>
+<p>“activationEvents”: [
+“workspaceContains:**/.editorconfig”
+]</p>
+<p>“activationCommands”: {
+“atom-workspace”: “markdown-preview-enhanced:toggle”
+},
+“activationHooks”: [</p>
+<p>https://code.visualstudio.com/api/references/contribution-points#contributes.menus
+https://code.visualstudio.com/api/references/contribution-points#contributes.submenus</p>
+<p>https://github.com/microsoft/vscode-extension-samples 예제</p>
+<p>DeprecationWarning: The <code>punycode</code> module is deprecated. Please use a userland alternative instead.</p>
+<pre><code>"contributes": {
+"commands": [
+],
+"menus": {
+  "explorer/context": [
+  ],
+  "editor/context": [
+  ]
+}
+}
+</code></pre>
+<p>— 설정</p>
+<p>“contributes”: {
+“configuration”: {
+“title”: “My Extension Settings”,
+“properties”: {
+“myExt.enableFeature”: {
+“type”: “boolean”,
+“default”: true,
+“description”: “Enable or disable the special feature (토글)”
+},
+“myExt.customMessage”: {
+“type”: “string”,
+“default”: “Hello!”,
+“description”: “Set a custom message (문자열 입력)”
+}
+}
+}
+}</p>
+<p>import * as vscode from ‘vscode’;</p>
+<p>export function activate(context: vscode.ExtensionContext) {
+const config = vscode.workspace.getConfiguration(‘myExt’);</p>
+<pre><code>const isEnabled = config.get&lt;boolean&gt;('enableFeature');
+const message = config.get&lt;string&gt;('customMessage');
+
+if (isEnabled) {
+    vscode.window.showInformationMessage(`Feature is enabled! Message: ${message}`);
+}
+
+// 설정 변경 감지
+vscode.workspace.onDidChangeConfiguration(event =&gt; {
+    if (event.affectsConfiguration('myExt.enableFeature') || event.affectsConfiguration('myExt.customMessage')) {
+        const newConfig = vscode.workspace.getConfiguration('myExt');
+        const newEnabled = newConfig.get&lt;boolean&gt;('enableFeature');
+        const newMessage = newConfig.get&lt;string&gt;('customMessage');
+
+        vscode.window.showInformationMessage(`Updated! Enabled: ${newEnabled}, Message: ${newMessage}`);
+    }
+});
+</code></pre>
+<p>}</p>
+<p>https://code.visualstudio.com/api/references/contribution-points#contributes.configuration</p>
+<p>예제에선 값이 딕셔너리인데, id를 포함한 어레이로 바꾸면 트리형태로 추가됨 - https://github.com/dotnet/vscode-csharp/blob/main/package.json
+“configuration”:
+{
+“title”: “My Extension Settings”,</p>
+<pre><code>"configuration": [
+  {
+    "title": "My Extension Settings",
+    "id": "a.a.a1",
+</code></pre>
+<p>https://github.com/qjebbs/vscode-plantuml
+https://github.com/BetterThanTomorrow/calva</p>
+<p>Pulumi</p>
+<p>await vscode.window.showQuickPick - 상단 선택
+vscode.window.showInformationMessage - 우측 하단 yes, no</p>
+<h2 id="todo"><a class="header" href="#todo">TODO</a></h2>
+<h3 id="아이콘"><a class="header" href="#아이콘">아이콘</a></h3>
+<p>https://code.visualstudio.com/api/references/extension-manifest</p>
+<h3 id="html을-그냥-문자열로-박아놨는데-뭔가-방법이-없을까"><a class="header" href="#html을-그냥-문자열로-박아놨는데-뭔가-방법이-없을까">html을 그냥 문자열로 박아놨는데 뭔가 방법이 없을까?</a></h3>
+<p>https://medium.com/@sampsonjoliver/importing-html-files-from-typescript-bd1c50909992</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="-nftoolexcelflow"><a href="#-nftoolexcelflow" class="header">🌶️ NF.Tool.ExcelFlow</a></h1>
+<ul>
+<li>
+<p>https://github.com/netpyoung/nf.data-flow</p>
+<ul>
+<li>assembly로드 하는것까지 했음</li>
+</ul>
+</li>
+<li>
+<p>partial db 갱신도</p>
+<ul>
+<li>excel을 winform에 드래그하면 그 엑셀에꺼만 갱신</li>
+</ul>
+</li>
+<li>
+<p>Razor page</p>
+</li>
+<li>
+<p>Attr지정</p>
+</li>
+<li>
+<p>클라랑 서버 데이터 분리</p>
+</li>
+<li>
+<p>타입지정</p>
+</li>
+</ul>
+<p>validate</p>
+<ul>
+<li>table column 이름 중복 - 알려주기</li>
+</ul>
+<p>???</p>
+<ul>
+<li>unique id같은경우 알려주기?</li>
+</ul>
+<p>템플릿은 T4로 C#함수를 쓸 수 있는</p>
+<p>// sheet / enums / consts / class
+https://marketplace.visualstudio.com/items?itemName=bricelam.T4Language</p>
+<h3 id="const"><a class="header" href="#const">const</a></h3>
+<p>CONST</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Type</th><th>Name</th><th>Value</th><th>Desc</th></tr>
+</thead>
+<tbody>
+<tr><td>int</td><td>n1</td><td>1</td><td>hello</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="enum"><a class="header" href="#enum">Enum</a></h3>
+<p>E_ENUM</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Name</th><th>Value</th><th>Desc</th></tr>
+</thead>
+<tbody>
+<tr><td>n1</td><td>1</td><td>hello</td></tr>
+<tr><td>&gt;</td><td>n1</td><td>hello</td></tr>
+</tbody>
+</table>
+</div>
+<p>https://shd101wyy.github.io/markdown-preview-enhanced/#/markdown-basics?id=table</p>
+<p>{
+“markdown-preview-enhanced.enableExtendedTableSyntax”: true,
+}</p>
+<p>셀 합치니까 멀티라인시 표가 안늘어나네? ‘AutoFit Row Height’ on merged cells</p>
+<h3 id="class"><a class="header" href="#class">class</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th></th><th></th><th></th></tr>
+</thead>
+<tbody>
+<tr><td>ATTR</td><td>[PrimaryKey]</td><td>[Unique]</td></tr>
+<tr><td>TYPE</td><td>int</td><td>int</td></tr>
+<tr><td>NAME</td><td>id</td><td>character_id</td></tr>
+<tr><td>DESC</td><td></td><td></td></tr>
+<tr><td>VALUE</td><td>1</td><td>1</td></tr>
+</tbody>
+</table>
+</div>
+<p>tableroot/
+Defines/
+Const_1.xlsx
+Const_2.xlsx
+Enum_1.xlsx
+Enum_2.xlsx
+Hello/
+Hello_1.xlsx
+Hello_2.xlsx</p>
+<p>참조
+상대경로로 해도 =‘[ComponentsC.xlsx]Sheet1’!A1 =&gt; 결국 절대경로로 되어버림</p>
+<p>외부 파일과 참조 파일이 동시에 열려 있을 때만 상대경로 사용 가능 - INDIRECT / VLOOKUP
+https://stackoverflow.com/questions/11629633/how-do-i-make-a-relative-reference-to-another-workbook-in-excel</p>
+<p>나중에 git 커밋마다 비교하면서 수정내역 알 수 있으면 좋겠네</p>
+<ul>
+<li>누가</li>
+<li>언제</li>
+<li>파일</li>
+<li>시트</li>
+<li>내용</li>
+</ul>
+<p>NPOI는 수식평가 외부참조가 안됨</p>
+<ul>
+<li>This workbook contains link to one or more external sources that could be unsafe.
+<ul>
+<li>File &gt; Info &gt; Edit Links to Files &gt; 톱니바퀴 &gt; Always Refresh</li>
+</ul>
+</li>
+</ul>
+<p>) https://excel-dna.net/</p>
+<p>sqlite 추출
+json 추출</p>
+<p>#Comment ? $Comment
+$는 엑셀에서 자주쓰는것이므로 쓰지말자</p>
+<p>&amp;END ? :END</p>
+<p>client - 클라 전용
+server - 서버 전용
+빈칸   - 둘다 공용</p>
+<ul>
+<li>
+<p>같은 값으로 머지한것도 지원</p>
+</li>
+<li>
+<p>셀에 대한 Note기능은 활용하지 않는걸로</p>
+</li>
+</ul>
+<p>_ignore</p>
+<p>[Unique]
+[PrimaryKey]</p>
+<p>예제
+Type
+id 다른시트 참조</p>
+<p>Const / Enum / 클래스</p>
+<p>클래스 상속 금지</p>
+<p>https://iekill.tistory.com/41</p>
+<ul>
+<li>
+<p>https://github.com/catsnipe/XlsToJson</p>
+<ul>
+<li>json/scriptableobject</li>
+</ul>
+</li>
+<li>
+<p>https://github.com/cathei/BakingSheet</p>
+<ul>
+<li>enum이랑 dictionary다루는게 신기했었는데 지금보면 별로인 접근방식</li>
+</ul>
+</li>
+<li>
+<p>https://github.com/elky84/ExcelToDotnet **</p>
+</li>
+<li>
+<p>https://github.com/qingfeng346/ScorpioConversion</p>
+<ul>
+<li>bytes	二进制数据,支持 base64:// file://
+https://github.com/kimsama/Unity-QuickSheet
+https://github.com/hnb-rabear/excel-to-unity</li>
+<li>winform 툴</li>
+<li>BouncyCastle.Crypto</li>
+<li>BouncyCastle.Cryptography</li>
+<li>markdig</li>
+</ul>
+</li>
+<li>
+<p>https://github.com/MyNameIsDabin/TabbySheet</p>
+</li>
+<li>
+<p>https://blog.naver.com/gamephysics/223825533965</p>
+</li>
+<li>
+<p>https://github.com/NtreevSoft/Crema</p>
+<ul>
+<li>https://github.com/s2quake/crema</li>
+<li>https://github.com/MahApps/MahApps.Metro</li>
+<li>https://github.com/Actipro/WPF-Controls</li>
+<li>https://github.com/mmanela/diffplex</li>
+</ul>
+</li>
+<li>
+<p>https://github.com/ExcelDataReader/ExcelDataReader</p>
+</li>
+<li>
+<p>https://github.com/tonyqus/npoi</p>
+</li>
+<li>
+<p>https://github.com/ClosedXML/ClosedXML</p>
+</li>
+</ul>
+<p>https://github.com/sveinungf/spreadcheetah</p>
+<p>https://github.com/Cysharp/MasterMemory
+https://www.litedb.org/</p>
+<p>https://github.com/zirplsoftware/ZCalcEngine
+https://github.com/pieterderycke/Jace
+https://github.com/soomin-kevin-sung/dotnet-calculation-engine</p>
+<p>https://github.com/softlion/SQLite.Net-PCL2 - IBlobSerializer 지원</p>
+<p>root/
+/ByteFiles/image…
+/Sheets/</p>
+<p>byte[] - byte:// - 이미지 같은거
+string - text:// - 스크립트 같은거
+string - base64://
+string - base64url://</p>
+<p>설정파일</p>
+<ul>
+<li>regexp _스코어시작</li>
+</ul>
+<p>_스코어 시작</p>
+<p>int / float / byte[]  / DateTime</p>
+<h2 id="시트"><a class="header" href="#시트">시트</a></h2>
+<p>주석시트</p>
+<h2 id=""><a class="header" href="#"></a></h2>
+<p>List<int> [1, 2, 3]
+Vector3 &lt;1, 2, 3&gt;
+TimeSpan? nullable</int></p>
+<p>키prim /sub</p>
+<p>3번째로 뒤엎는거다.</p>
+<p>시트당 클래스/enum/const를 같이 묶으려했다</p>
+<pre><code>    // enum
+    // - header: *NAME | *FIELD
+    // - field: *NAME | *VALUE | DESC | ATTR
+
+    // const
+    // - header: *NAME | *FIELD
+    // - field: *TYPE | *NAME | *VALUE | DESC | ATTR
+
+    // class
+    // - header: ?*NAME | *TYPE | PART | DESC | *TABLE
+</code></pre>
+<p>IFormulaEvaluator evaluator 검증</p>
+<p>컴파일
+Microsoft.CodeAnalysis.CSharp.Workspaces
+Microsoft.Build.Locator</p>
+<p>https://learn.microsoft.com/ko-kr/nuget/consume-packages/package-references-in-project-files#controlling-dependency-assets</p>
+<h2 id="clientserver-assembly만들어서-sqlite에-삽입하니-충돌문제"><a class="header" href="#clientserver-assembly만들어서-sqlite에-삽입하니-충돌문제">client/server assembly만들어서 sqlite에 삽입하니 충돌문제</a></h2>
+<ul>
+<li>처음에는 어셈블리 중복로드 문제인가 싶어서 살펴봤지만
+<ul>
+<li>https://learn.microsoft.com/ko-kr/dotnet/standard/assembly/unloadability</li>
+</ul>
+</li>
+<li>코드를 보니 sqlite.net내부에 타입 맵핑 태이블(_mapping)이 있는데 캐슁되어 있는 부분에서 문제가 발생. 클리어 함수가 노출되어 있지않아, 리플렉션으로 강제호출</li>
+</ul>
+<h2 id="todo-1"><a class="header" href="#todo-1">TODO</a></h2>
+<ul>
+<li>프로토콜 추가
+<ul>
+<li>file:// file path</li>
+<li>proto:// json</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="-nftoolunitycompilecache"><a href="#-nftoolunitycompilecache" class="header">🌶️ NF.Tool.UnityCompileCache</a></h1>
+<p>ccache
+sccache</p>
+<p>https://github.com/netpyoung/NF.Tool.UnityCompileCache
+https://netpyoung.github.io/NF.Tool.UnityCompileCache/docs/</p>
+<p>etc - distcc</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="nfunitylibsmanagersassetbundlemanagement"><a class="header" href="#nfunitylibsmanagersassetbundlemanagement">nf.unitylibs.managers.assetbundlemanagement</a></h1>
 <ul>
 <li><a href="https://github.com/netpyoung/nf.unitylibs.managers.assetbundlemanagement">repo</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="nfunitylibsmanagerspatchmanagement"><a class="header" href="#nfunitylibsmanagerspatchmanagement">nf.unitylibs.managers.patchmanagement</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="nfunitylibsmanagerspatchmanagement"><a class="header" href="#nfunitylibsmanagerspatchmanagement">nf.unitylibs.managers.patchmanagement</a></h1>
 <ul>
 <li><a href="https://github.com/netpyoung/nf.unitylibs.managers.patchmanagement">repo</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="nfunitytoolsessentials"><a class="header" href="#nfunitytoolsessentials">nf.unitytools.essentials</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="noteproject-record"><a class="header" href="#noteproject-record">note.project-record</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="nfunitylibsmanagersresourcesextra"><a class="header" href="#nfunitylibsmanagersresourcesextra">nf.unitylibs.managers.resourcesextra</a></h1>
+<ul>
+<li><a href="https://github.com/netpyoung/nf.unitylibs.managers.resourcesextra">netpyoung/nf.unitylibs.managers.resourcesextra</a></li>
+</ul>
+<h2 id="시작하며-3"><a class="header" href="#시작하며-3">시작하며</a></h2>
+<ul>
+<li>puerts를 가지고 놀다가 DefaultLoader에서 파일있는지 여부를 판별하는데서 UnityEngine.Resources.Load 사용함.
+<ul>
+<li>이게 유니티가 Resources쪽 API는 놔버려서 로드를 해서 체크를 해야함.</li>
+</ul>
+<pre><code class="language-cs">// https://github.com/Tencent/puerts/blob/f93907e9b6110497a2fc95827851b7e05ec1e2c9/unity/Assets/core/upm/Runtime/Src/Loader.cs#L96
+public bool FileExists(string filepath)
+    bool exist = UnityEngine.Resources.Load(pathToUse) != null;
+</code></pre>
+</li>
+</ul>
+<h2 id="뭘할까"><a class="header" href="#뭘할까">뭘할까</a></h2>
+<ul>
+<li>Resources가 여러 제약이 있긴해도 간편함때문에 버리지는 못하고 계속 써야하는데, 중복로드 / 의존성그래프 문제
+<ul>
+<li>Resources는 Assets/Resources/ =&gt; Resources.assets</li>
+<li>Addressable의 로컬로드는 StreamingAssets를 사용
+<ul>
+<li>Assets/StreamingAssets =&gt;StreamingAssets/</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>일단 Resources.Load 없이 존재하는지 확인가능(런타임)하는 거랑</li>
+<li>정적분석으로 Resources.Load(“asdf”); // 이름 체크기능 - 코드짜면서 아날리시트 타임
+<ul>
+<li>정적 분석이라 런타임 기능 함수를 가져다 쓸 수 없음</li>
+<li>정적 분석은 <a href="NF/nf.unitylibs.utils.html">netpyoung/nf.unitylibs.utils</a>를 만들면서 조금 깔딱거려봤음</li>
+</ul>
+</li>
+</ul>
+<h2 id="삽질"><a class="header" href="#삽질">삽질</a></h2>
+<ul>
+<li>Resources.IsExist 처럼 스태틱클래스를 확장시키고 싶었으나
+<ul>
+<li>유니티는 C# 9까지 지원함.</li>
+<li>스태틱 클래스 확장은 C# 14 부터 지원
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods#declare-extension-members">https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods#declare-extension-members</a>
+|                                                                                                  |                                                                                                                    |
+| ———————————————————————————————— | —————————————————————————————————————— |
+| AppContext.BaseDirectory;                                                                        | C:\Program Files\Microsoft Visual Studio\18\Insiders\Common7\ServiceHub\Hosts\ServiceHub.Host.Extensibility.amd64\ |
+| typeof(ResourceLoadAnalyzer).Assembly.Location;                                                  | C:\Users\pyoung\AppData\Local\Temp\Roslyn\AnalyzerAssemblyLoader\4a41c1fd308e4a8b946ef9548f7a1c00\3\HelloHello.dll |
+| Assembly.GetExecutingAssembly().Location;                                                        | C:\Users\pyoung\AppData\Local\Temp\Roslyn\AnalyzerAssemblyLoader\f5def63c834c4efd803ba9f171794778\3\HelloHello.dll |
+| Environment.GetEnvironmentVariable(“MSBuildProjectFullPath”);                                    | ‘’                                                                                                                 |
+| Environment.GetEnvironmentVariable(“MSBuildProjectFullPath”, EnvironmentVariableTarget.Process); | ‘’                                                                                                                 |
+| context.Node.SyntaxTree.FilePath;                                                                | C:\temp\unityProj\Assets\Scenes\NewMonoBehaviourScript.cs                                                          |</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="해킹"><a class="header" href="#해킹">해킹</a></h2>
+<ul>
+<li>importer를 만들어서 __ResourceBlabla.txt 갱신</li>
+</ul>
+<p>설정은</p>
+<h2 id="ref-1"><a class="header" href="#ref-1">Ref</a></h2>
+<ul>
+<li>Runtime
+<ul>
+<li><a href="https://docs.unity3d.com/6000.2/Documentation/ScriptReference/Resources.html">ScriptReference/Resources</a></li>
+<li><a href="https://docs.unity3d.com/6000.4/Documentation/ScriptReference/ScriptableObject.html">ScriptReference/ScriptableObject</a></li>
+<li><a href="https://docs.unity3d.com/6000.4/Documentation/ScriptReference/ISerializationCallbackReceiver.html">ScriptReference/ISerializationCallbackReceiver</a></li>
+</ul>
+</li>
+<li>Editor
+<ul>
+<li><a href="https://docs.unity3d.com/6000.4/Documentation/ScriptReference/ScriptableSingleton_1.html">ScriptReference/ScriptableSingleton</a></li>
+<li><a href="https://docs.unity3d.com/6000.4/Documentation/ScriptReference/FilePathAttribute.html">ScriptReference/FilePathAttribute</a></li>
+<li><a href="https://docs.unity3d.com/6000.2/Documentation/ScriptReference/SettingsProvider.html">ScriptReference/SettingsProvider</a></li>
+<li><a href="https://docs.unity3d.com/6000.4/Documentation/ScriptReference/SettingsProviderAttribute.html">ScriptReference/SettingsProviderAttribute</a></li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="nfunitytoolsessentials"><a class="header" href="#nfunitytoolsessentials">nf.unitytools.essentials</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="noteproject-record"><a class="header" href="#noteproject-record">note.project-record</a></h1>
 <ul>
 <li><a href="https://github.com/netpyoung/note.project-record">https://github.com/netpyoung/note.project-record</a></li>
 </ul>
-<h2 id="시작하며-2"><a class="header" href="#시작하며-2">시작하며</a></h2>
+<h2 id="시작하며-4"><a class="header" href="#시작하며-4">시작하며</a></h2>
 <ul>
 <li>README.md에 써놓기에는 주저리 주저리 뒷썰같은 느낌.</li>
 <li>필요한 것만 들어가는 간결한 프로젝트와는 다른 뭔가가 필요했다.</li>
@@ -424,13 +1115,197 @@ dev-journey
 <li>📝도 팬이 달려있어 고려해봤는데 종이장이 study.에서 쓰이는 거랑 겹친다.</li>
 <li>✒️ 펜촉을 써본적이 없지만. 뭔가 느낌이 있어 노트의 아이콘은 이걸로 하겠다.</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="httpnetpyounggithubio"><a class="header" href="#httpnetpyounggithubio">http://netpyoung.github.io</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="httpnetpyounggithubio"><a class="header" href="#httpnetpyounggithubio">http://netpyoung.github.io</a></h1>
 <ul>
 <li><a href="https://netpyoung.github.io/blog/jekyll_to_zola/">https://netpyoung.github.io/blog/jekyll_to_zola/</a></li>
 <li><a href="https://netpyoung.github.io/blog/githubpages_jekyll_v3/">https://netpyoung.github.io/blog/githubpages_jekyll_v3/</a></li>
 <li><a href="https://netpyoung.github.io/blog/netpyoung.github.io_on_jekyll/">https://netpyoung.github.io/blog/netpyoung.github.io_on_jekyll/</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="adr"><a class="header" href="#adr">ADR</a></h1>
+<p>스프링노트 - 서비스 종료
+에버노트 - 익숙하지 않음
+티스토리 - 커스터마이즈 불편
+네이버 블로그 - 처음부터 고려대상 제외</p>
+<p>그 당시 서비스가 없었음
+노션 - 에메한 포지션
+미디엄 - 구독유도 혐오</p>
+<p>블로그 ? 개발 블로그 ?</p>
+<p>내용이 없는 이유
+고찰 부족
+블로그 보다 사이드프로젝트</p>
+<h2 id="생각중"><a class="header" href="#생각중">생각중</a></h2>
+<ul>
+<li>zig로 된 zine은 어떨까?
+<ul>
+<li>아직 성숙하지 않은거 같아 일단 보류</li>
+<li>https://github.com/kristoff-it/zine</li>
+</ul>
+</li>
+</ul>
+<h2 id="snippet"><a class="header" href="#snippet">snippet</a></h2>
+<pre><code class="language-html">&lt;details&gt;
+&lt;summary&gt;Tab 1&lt;/summary&gt;
+
+Content for Tab 1
+| a   |
+| --- |
+| b   |
+
+&lt;/details&gt;
+
+&lt;details&gt;
+&lt;summary&gt;Tab 2&lt;/summary&gt;
+
+Content for Tab 2
+
+&lt;/details&gt;
+</code></pre>
+<pre><code class="language-html">&lt;style&gt;
+/* 전체 그리드: 왼쪽 레이블 140px, 오른쪽 콘텐츠 유동 */
+.vtabs {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: start;
+  border: 1px solid #ccc;
+  min-height: 160px;
+  width: 100%;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* 라디오 숨기기 (하지만 DOM순서는 유지) */
+.vtabs input[type="radio"] {
+  display: none;
+}
+
+/* 레이블: 왼쪽 컬럼에 쌓이도록 설정 */
+.vtabs label {
+  display: block;
+  padding: 0.6em 0.9em;
+  border-bottom: 1px solid #ddd;
+  background: #f3f3f3;
+  cursor: pointer;
+  user-select: none;
+  grid-column: 1;          /* 왼쪽 컬럼 */
+}
+
+/* 라벨 hover / 포커스 시 */
+.vtabs label:hover,
+.vtabs label:focus {
+  background: #e9e9e9;
+}
+
+/* 콘텐츠: 오른쪽 컬럼 */
+.vtabs .content {
+  display: none;           /* 기본 숨김 */
+  padding: 1em;
+  grid-column: 2;          /* 오른쪽 컬럼 */
+  border-left: 1px solid #eee;
+  background: white;
+}
+
+/* 체크된 탭의 레이블 스타일 (input 바로 다음 label에만 적용) */
+.vtabs input:checked + label {
+  background: white;
+  font-weight: 600;
+  border-bottom: 1px solid white; /* 이걸로 레이블과 콘텐츠가 연결된 듯 보이게 함 */
+}
+
+/* 체크된 탭에 해당하는 콘텐츠만 표시 */
+.vtabs input:checked + label + .content {
+  display: block;
+}
+
+/* 반응형: 좁은 화면에서는 레이블을 위로 쌓음 */
+@media (max-width: 520px) {
+  .vtabs {
+    grid-template-columns: 1fr;
+  }
+  .vtabs label {
+    grid-column: 1;
+    border-right: none;
+  }
+  .vtabs .content {
+    grid-column: 1;
+    border-left: none;
+    border-top: 1px solid #eee;
+  }
+}
+&lt;/style&gt;
+
+&lt;div class="vtabs"&gt;
+
+  &lt;!-- 탭 1 --&gt;
+  &lt;input type="radio" name="vtabs" id="tab-a" checked&gt;
+  &lt;label for="tab-a"&gt;Overview&lt;/label&gt;
+  &lt;div class="content"&gt;
+  
+**Overview content**  
+간단한 개요나 요약을 넣는 영역입니다.
+
+  &lt;/div&gt;
+
+  &lt;!-- 탭 2 --&gt;
+  &lt;input type="radio" name="vtabs" id="tab-b"&gt;
+  &lt;label for="tab-b"&gt;Details&lt;/label&gt;
+  &lt;div class="content"&gt;
+  
+**Details content**  
+상세 내용을 여기에 작성하세요.
+  
+  &lt;/div&gt;
+
+  &lt;!-- 탭 3 --&gt;
+  &lt;input type="radio" name="vtabs" id="tab-c"&gt;
+  &lt;label for="tab-c"&gt;Examples&lt;/label&gt;
+  &lt;div class="content"&gt;
+
+**Examples content**  
+코드 블록이나 예제를 넣을 수 있습니다.
+
+  &lt;/div&gt;
+
+  &lt;input type="radio" name="vtabs" id="tab-d"&gt;
+  &lt;label for="tab-d"&gt;Examples&lt;/label&gt;
+  &lt;div class="content"&gt;
+
+**Examples content**  
+코드 블록이나 예제를 넣을 수 있습니다.
+
+  &lt;/div&gt;
+
+  &lt;input type="radio" name="vtabs" id="tab-e"&gt;
+  &lt;label for="tab-e"&gt;Examples&lt;/label&gt;
+  &lt;div class="content"&gt;
+
+**Examples content**  
+코드 블록이나 예제를 넣을 수 있습니다.
+
+  &lt;/div&gt;
+
+
+  &lt;input type="radio" name="vtabs" id="tab-f"&gt;
+  &lt;label for="tab-f"&gt;Examples&lt;/label&gt;
+  &lt;div class="content"&gt;
+
+**Examples content**  
+코드 블록이나 예제를 넣을 수 있습니다.
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+</code></pre>
+<ul>
+<li>검색창 - https://www.fusejs.io/demo.html
+<ul>
+<li><a href="https://github.com/heyimalex/wafu">heyimalex/wafu</a>- Rust port of Fuse.js
+https://github.com/netpyoung/netpyoung.github.io/commit/8902af639842a67a4656e2066dac8440ec89fc3b
+https://github.com/lispkorea/lispkorea.github.io/commit/04c68a1cb20e7e9f2902047c91bfb13d906834da</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="adr"><a class="header" href="#adr">ADR</a></h1>
 <ul>
 <li><code>A</code>rchitecture <code>D</code>ecision <code>R</code>ecords (ADRs).</li>
 </ul>
@@ -449,14 +1324,15 @@ Expected Result: 예상결과 / Consequences 결과</p>
 과정
 원인
 해결책</p>
-<h2 id="ref-1"><a class="header" href="#ref-1">Ref:</a></h2>
+<h2 id="ref-2"><a class="header" href="#ref-2">Ref:</a></h2>
 <ul>
 <li><a href="https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions">Documenting Architecture Decisions - Michael Nygard</a></li>
 <li><a href="https://github.com/npryce/adr-tools">npryce/adr-tools</a> - GPL</li>
 <li><a href="https://github.com/phodal/adr">https://github.com/phodal/adr</a> - MIT</li>
 <li><a href="https://github.com/joelparkerhenderson/architecture-decision-record">https://github.com/joelparkerhenderson/architecture-decision-record</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="변경내역을-깃-커밋-히스토리로-뽑는것에-대한"><a class="header" href="#변경내역을-깃-커밋-히스토리로-뽑는것에-대한">변경내역을 깃 커밋 히스토리로 뽑는것에 대한.</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="변경내역을-깃-커밋-히스토리로-뽑는것에-대한"><a class="header" href="#변경내역을-깃-커밋-히스토리로-뽑는것에-대한">변경내역을 깃 커밋 히스토리로 뽑는것에 대한.</a></h1>
 <h2 id="결론-1"><a class="header" href="#결론-1">결론</a></h2>
 <p>결론은 반대. 자동으로 뽑는건 필요하지만, 커밋 기반으로 뽑는것은 아니다.</p>
 <h2 id="시도-2"><a class="header" href="#시도-2">시도</a></h2>
@@ -478,24 +1354,53 @@ Expected Result: 예상결과 / Consequences 결과</p>
 </ul>
 </li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="마크업-언어"><a class="header" href="#마크업-언어">마크업 언어</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="마크업-언어"><a class="header" href="#마크업-언어">마크업 언어</a></h1>
 <h2 id="결론-2"><a class="header" href="#결론-2">결론</a></h2>
 <p>markdown이 간단해서 1픽으로 하고 만약 요구사항이 늘어난다면 그 다음으로는 asciidoc을 고려.</p>
 <h2 id="시도-3"><a class="header" href="#시도-3">시도</a></h2>
 <p><a href="https://daringfireball.net/projects/markdown/">markdown</a>, <a href="https://asciidoc.org/">asciidoc</a>, <a href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/">reStructuredText</a>, <a href="https://orgmode.org/">org</a> 들을 써봤다.</p>
-<div class="table-wrapper"><table><thead><tr><th></th><th>fileextension</th></tr></thead><tbody>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th></th><th>fileextension</th></tr>
+</thead>
+<tbody>
 <tr><td>markdown</td><td>.md</td></tr>
 <tr><td>asciidoc</td><td>.adoc / .asciidoc / .asc</td></tr>
 <tr><td>reStructuredText</td><td>.rst</td></tr>
 <tr><td>org</td><td>.org</td></tr>
-</tbody></table>
+</tbody>
+</table>
 </div>
 <p>복잡하고 잘 까먹는다. org는 에디터 특성을 탄다.</p>
-<h2 id="ref-2"><a class="header" href="#ref-2">Ref</a></h2>
+<h2 id="ref-3"><a class="header" href="#ref-3">Ref</a></h2>
 <ul>
 <li><a href="https://news.ycombinator.com/item?id=33468213">https://news.ycombinator.com/item?id=33468213</a></li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="템플릿-언어"><a class="header" href="#템플릿-언어">템플릿 언어</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="serialization"><a href="#serialization" class="header">serialization</a></h1>
+<p>https://xeiaso.net/blog/go-1.20-yaml/</p>
+<pre><code class="language-yaml">go-versions:
+  - 1.2
+  - 1.20  # 1.2와 동일
+</code></pre>
+<p>protobuf
+FlatBuffers
+captin proto
+message pack - https://github.com/Cysharp/MemoryPack
+json
+bson</p>
+<p>BinaryPack - https://github.com/Sergio0694/BinaryPack
+HyperSerializer - https://github.com/adam-dot-cohen/HyperSerializer
+Apex.Serialization - https://github.com/dbolin/Apex.Serialization
+https://docs.unity3d.com/Packages/com.unity.serialization@3.1/manual/index.html</p>
+<h2 id="ref-4"><a class="header" href="#ref-4">Ref</a></h2>
+<ul>
+<li><a href="https://xeiaso.net/blog/go-1.20-yaml/">https://xeiaso.net/blog/go-1.20-yaml/</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="템플릿-언어"><a class="header" href="#템플릿-언어">템플릿 언어</a></h1>
 <h2 id="결정-1"><a class="header" href="#결정-1">결정</a></h2>
 <ul>
 <li>디버깅때문이라도 t4쓰자. 추후 razor디버깅 방법을 안다면 이쪽으로 가도 될듯?</li>
@@ -528,6 +1433,11 @@ Expected Result: 예상결과 / Consequences 결과</p>
 
         </div>
 
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
 
 
@@ -536,13 +1446,13 @@ Expected Result: 예상결과 / Consequences 결과</p>
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
 
@@ -551,6 +1461,7 @@ Expected Result: 예상결과 / Consequences 결과</p>
             window.setTimeout(window.print, 100);
         });
         </script>
+
 
     </div>
     </body>
