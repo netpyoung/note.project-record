@@ -45,7 +45,7 @@ visual studio에서 디버깅이 되는거에 가중치를 많이 줌.
    - razor로도 template만들어 봤는데 의외로 t4보다 가시성이 안좋았다.
 -  [liquid]
   - towncrier는 [Jinja2]
-  - 일단 liquid를 넣긴 넣었는데 t4가 더 나아보여서 삭제할까 보류중 => 삭제로 결정
+  - 일단 liquid를 넣긴 넣었는데 t4가 더 나아보여서 삭제할까 보류중 => 혹시나 다른 사람들이 쓰면 돌이키기 힘드니 빠른 삭제로 결정.
     - [Template.liquid](https://github.com/netpyoung/NF.Tool.ReleaseNoteMaker/blob/3980c961869794b69bc01e7d5637e73570f2111c/NF.Tool.ReleaseNoteMaker/NF.Tool.ReleaseNoteMaker.CLI/res/Template.liquid)
     - [Template.tt](https://github.com/netpyoung/NF.Tool.ReleaseNoteMaker/blob/3980c961869794b69bc01e7d5637e73570f2111c/NF.Tool.ReleaseNoteMaker/NF.Tool.ReleaseNoteMaker.CLI/res/Template.tt)
   - [fluid](https://github.com/sebastienros/fluid) / [scriban](https://github.com/scriban/scriban) / [dotliquid](https://github.com/dotliquid/dotliquid)
@@ -115,7 +115,10 @@ visual studio에서 디버깅이 되는거에 가중치를 많이 줌.
 - 러스트로 작성된 것도 있네?
   - <https://github.com/nekitdev/changelogging>
     - draft대신 preview라는 명령어를 넣은건 좋은듯. <https://docs.rs/changelogging/latest/changelogging/#preview>
-
+- https://github.com/twisted/towncrier
+  - https://devguide.python.org/core-team/committing/index.html#what-s-new-and-news-entries
+  - https://docs.gitlab.com/development/changelog/
+  - https://github.com/miniscruff/changie
 
 [towncrier]: https://github.com/twisted/towncrier
 [Jinja2]: https://jinja.palletsprojects.com/

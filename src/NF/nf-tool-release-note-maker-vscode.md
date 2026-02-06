@@ -1,9 +1,14 @@
 # nf-tool-release-note-maker-vscode
 
+- https://marketplace.visualstudio.com/items?itemName=netpyoung.nf-tool-release-note-maker-vscode
+- https://github.com/netpyoung/nf-tool-release-note-maker-vscode
+
+## 시작하며
 
 - [NF.Tool.ReleaseNoteMaker](./NF.Tool.ReleaseNoteMaker.md)을 커맨드라인으로 확인하려니 불편
   - 에디터는 VSCode가 대세
 
+## 참고
 
 - [get-started/your-first-extension](https://code.visualstudio.com/api/get-started/your-first-extension)
 - [yeoman](https://yeoman.io/)
@@ -17,36 +22,73 @@
   - The Visual Studio Code Extension Manager
   - Access Token 생성 - https://azure.microsoft.com/services/devops/
   - Publisher 등록 - https://marketplace.visualstudio.com/manage/createpublisher
+    - https://marketplace.visualstudio.com/VSCode > Publish extensions > Create Publisher
 
-https://marketplace.visualstudio.com/VSCode >Publish extensions > Create Publisher
+## 기록
 
+### 배포
+
+vsce package - 패키지 파일로 만듬 - 후 에 파일을 통해서 배포도 가능
 vsce login <publisherName>
 vsce publish - 바로배포
-vsce package - 패키지 파일로 만듬 - 후에 파일을 통해서 배포도 가능
+
+- publish대신 vsce package 로 패키지 파일을 사이트에서 수동 업로드.
+  - 뭔가 마음이 놓인다.
 
 
 
+### 네이밍 실수 nf-tools-release-note-maker-vscode => nf-tool-release-note-maker-vscode
 
-나는 툴에 대해 단수 tool을 썼는데 까먹고 복수형인 tools를 붙여버렸다.
-NF.Tool.ExcelFlow을 제작하면서 
-
-nf-tools-release-note-maker-vscode => nf-tool-release-note-maker-vscode
-nf-tools-release-note-maker-vscode - NF.Tool.ReleaseNoteMaker 이름이 안맞는 문제가 생겼는데, vscode extension market에 올려져 있어 그냥 유지할까 생각도 했지만, 인스톨횟수가 2회(내가 테스트용으로 한것)밖에 없고, nuget과는 달리 삭제가 가능해서 과감히 삭제후 이름바꾸고 다시 마켓에 업로드
-
-
-
+- 나는 툴에 대해 단수 tool을 썼는데 까먹고 복수형인 tools를 붙여버렸다.
+- nf-tools-release-note-maker-vscode - NF.Tool.ReleaseNoteMaker 이름이 안맞는 문제가 생겼는데,
+  - vscode extension market에 올려져 있어 그냥 유지할까 생각도 했지만,
+  - 인스톨횟수가 2회(내가 테스트용으로 한것)밖에 없고,
+  - nuget과는 달리 삭제가 가능해서 과감히 삭제후 이름바꾸고 다시 마켓에 업로드
+  - 처음 tools로 업로드 했을시에는 5분만에 Verifing이 끝나더니만, 이전 툴을 삭제하고 바로 tool로 올린 탓인지 1시간 정도 걸렸네
 
 
-폴더구조를 바꾸려니 symbolic link가 필요하네
+### 폴더구조를 바꾸려니 symbolic link가 필요하네
 
 New-Item -ItemType SymbolicLink -Path "./nf-tools-release-note-maker-vscode/README.md" -Target "../README.md"
 New-Item -ItemType SymbolicLink -Path "./nf-tools-release-note-maker-vscode/LICENSE.md" -Target "../LICENSE.md"
 New-Item -ItemType SymbolicLink -Path "./nf-tools-release-note-maker-vscode/CHANGELOG.md" -Target "../CHANGELOG.md"
 
-- 멀티인풋을 하려면 webview를 활용
-  - https://github.com/Microsoft/vscode-extension-samples/tree/main/webview-sample
+### VSCode 멀티인풋을 하려면 webview가 필요하네
 
-흠 나중에 wasm파일 해서 테스트 해보고 싶네
+- https://github.com/Microsoft/vscode-extension-samples/tree/main/webview-sample
+- framework가져다 쓸까하다가 그냥 gpt한테 심플하게 만들어달라고 해서 만듬
+  - https://github.com/microsoft/vscode-webview-ui-toolkit - deprecated 
+  - https://vscode-elements.github.io/
+  - https://github.com/vscode-elements/elements
+  - https://fast.design/
+  - https://lit.dev/
+
+webview event
+
+``` html
+      <script>
+        const vscode = acquireVsCodeApi();
+
+        // 1) 버튼 클릭 시 확장으로 메시지 보내기
+        document.getElementById('send').addEventListener('click', () => {
+          vscode.postMessage({ command: 'alert', text: 'Hello from Webview!' });
+        });
+
+        // 2) 확장에서 온 메시지 받기
+        window.addEventListener('message', event => {
+          const message = event.data;
+          switch (message.command) {
+            case 'init':
+              console.log('Message from extension:', message.data);
+              break;
+          }
+        });
+      </script>
+```
+
+### 기타
+
+- 흠 나중에 wasm파일 쓸 일 있으면 한번 여기서 테스트 해보고 싶네
 
 activationEvents는 정적으로만 지정 가능 → configuration 기반 동적 활성화는 불가
 
@@ -248,67 +290,18 @@ https://github.com/BetterThanTomorrow/calva
 
 
 
-
-
-----
-
-https://github.com/microsoft/vscode-webview-ui-toolkit - deprecated 
-https://vscode-elements.github.io/
-https://github.com/vscode-elements/elements
-
-
-https://fast.design/
-https://lit.dev/
-
-
-```
-      <script>
-        const vscode = acquireVsCodeApi();
-
-        // 1) 버튼 클릭 시 확장으로 메시지 보내기
-        document.getElementById('send').addEventListener('click', () => {
-          vscode.postMessage({ command: 'alert', text: 'Hello from Webview!' });
-        });
-
-        // 2) 확장에서 온 메시지 받기
-        window.addEventListener('message', event => {
-          const message = event.data;
-          switch (message.command) {
-            case 'init':
-              console.log('Message from extension:', message.data);
-              break;
-          }
-        });
-      </script>
-```
-
-https://medium.com/@sampsonjoliver/importing-html-files-from-typescript-bd1c50909992
-
-
 Pulumi
-
 
 await vscode.window.showQuickPick - 상단 선택
  vscode.window.showInformationMessage - 우측 하단 yes, no
- 
 
+## TODO
 
-아이콘 https://code.visualstudio.com/api/references/extension-manifest
+### 아이콘
 
+https://code.visualstudio.com/api/references/extension-manifest
 
+### html을 그냥 문자열로 박아놨는데 뭔가 방법이 없을까?
 
-
-
-https://docs.gitlab.com/development/changelog/
-
-https://github.com/twisted/towncrier
-https://devguide.python.org/core-team/committing/index.html#what-s-new-and-news-entries
-
-https://github.com/miniscruff/changie
-
-
-처음 9:34 verifying - 40
-다시 삭제했다가 다시하니 더 걸리네
-
-11:45 Validating 11:48 Listed
+https://medium.com/@sampsonjoliver/importing-html-files-from-typescript-bd1c50909992
 
