@@ -27,3 +27,9 @@ PPU랑 APU쪽이 빡셌음.
 저 책이 아니였으면 손대볼 염두도 안났을것임. gameboy를 해볼까? 아니면 chip-8 에뮬로 가볍게 작업하고 심화로 chip-8타겟팅하는 롬을 만들 수 있도록?
 
 일단 어찌어찌 완성시켰는데 심화해볼 수 있는것들도 남았고. 다시 관심을 가질때 다시 재미있게 가지고 놀 수 있을 프로젝트라 어느정도 1차 완성하고나서 나름 만족감을 느낄 수 있었음.
+
+
+## 기타
+
+구현하면서 [Writing NES Emulator in Rust](https://bugzmanov.github.io/nes_ebook/)도 참고해서 봤는데, wiki링크가 과거 nesdev.com 기준으로 작성되었음. 사이트 분쟁이 있는지 현재는 nesdev.org로 접속이 되는데 nesdev.com 기준으로 작성된 문서/코드 주석들을 수정하는 [PR](https://github.com/bugzmanov/nes_ebook/pull/47)을 남겼고 받아들여짐. 참고하면서 도움을 받았는데 조금이라도 도움을 줄 수 있어서 나름 만족.
+
