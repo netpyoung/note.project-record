@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="kr" class="light sidebar-visible" dir="ltr">
+<html lang="ko" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -24,8 +24,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -45,10 +45,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-e8da943a.js";
+            window.path_to_searchindex_js = "../searchindex-d08e1f36.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-07df6a44.js"></script>
+        <script src="../toc-be85cc1f.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -297,45 +297,68 @@ New-Item -ItemType SymbolicLink -Path “./nf-tools-release-note-maker-vscode/CH
 </code></pre>
 <h3 id="기타"><a class="header" href="#기타">기타</a></h3>
 <ul>
-<li>흠 나중에 wasm파일 쓸 일 있으면 한번 여기서 테스트 해보고 싶네</li>
-</ul>
+<li>
+<p>흠 나중에 wasm파일 쓸 일 있으면 한번 여기서 테스트 해보고 싶네</p>
+</li>
+<li>
 <p>activationEvents는 정적으로만 지정 가능 → configuration 기반 동적 활성화는 불가</p>
+</li>
+<li>
 <p>폴더에 파일이 존재하면 메뉴가 생겨서 우클릭해서 확인하고싶었지만, Explorer에서 폴더를 선택할 때마다 발생하는 이벤트는 없음</p>
+</li>
+<li>
 <p>ReleaseNote.config.toml 우클릭 임시파일에 preview를 쓰고 마크다운 렌더</p>
+</li>
+<li>
 <p>resourceFilename == ReleaseNote.config.toml</p>
+</li>
+<li>
 <p>ReleaseNote.config.toml를 config쪽으로 빼야겠네</p>
+</li>
+<li>
 <p>https://code.visualstudio.com/api/references/when-clause-contexts#inspect-context-keys-utility</p>
-<p>bun add –global yo generator-code</p>
-<p>yo code Hello2 –extensionType=ts –pkgManager=npm –skip-install –gitInit=true –bundler=esbuild –skipOpen</p>
-<p>node_modules/@types/vscode/index.d.ts.</p>
-<p>package.json
-“contributes”: {
-“commands”: [
-{
-“command”: “helloworld.helloWorld”,
-“title”: “Hello World”
+</li>
+</ul>
+<pre><code>bun add --global yo generator-code
+
+yo code Hello2 --extensionType=ts --pkgManager=npm --skip-install --gitInit=true --bundler=esbuild --skipOpen
+
+
+
+node_modules/@types/vscode/index.d.ts.
+
+package.json
+  "contributes": {
+    "commands": [
+      {
+        "command": "helloworld.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  
+const disposable = vscode.commands.registerCommand('helloworld.helloWorld', () =&gt; {
+	vscode.window.showInformationMessage('Hello World!');
+});
+
+context.subscriptions.push(disposable);
+
+"menus": {
+  "explorer/context": [
+	{
+	  "command": "myExtension.processFolder",
+	  "when": "explorerResourceIsFolder",
+	  "group": "navigation"
+	}
+  ]
 }
-]
-},</p>
-<p>const disposable = vscode.commands.registerCommand(‘helloworld.helloWorld’, () =&gt; {
-vscode.window.showInformationMessage(‘Hello World!’);
-});</p>
-<p>context.subscriptions.push(disposable);</p>
-<p>https://github.com/shd101wyy/markdown-preview-enhanced</p>
-<p>https://github.com/dev-jonghoonpark/ettk-vscode-extention/</p>
-<p>“menus”: {
-“explorer/context”: [
-{
-“command”: “myExtension.processFolder”,
-“when”: “explorerResourceIsFolder”,
-“group”: “navigation”
-}
-]
-}</p>
-<p>https://esbuild.github.io/
-https://github.com/evanw/esbuild</p>
-<p>https://bun.com/docs/bundler/esbuild</p>
+</code></pre>
 <ul>
+<li>https://github.com/shd101wyy/markdown-preview-enhanced</li>
+<li>https://github.com/dev-jonghoonpark/ettk-vscode-extention/</li>
+<li>https://esbuild.github.io/</li>
+<li>https://github.com/evanw/esbuild</li>
+<li>https://bun.com/docs/bundler/esbuild</li>
 <li>Error: Invalid problemMatcher reference: $esbuild-watch
 <ul>
 <li>https://marketplace.visualstudio.com/items?itemName=connor4312.esbuild-problem-matchers</li>
@@ -382,45 +405,48 @@ https://code.visualstudio.com/api/references/contribution-points#contributes.sub
 }
 </code></pre>
 <p>— 설정</p>
-<p>“contributes”: {
-“configuration”: {
-“title”: “My Extension Settings”,
-“properties”: {
-“myExt.enableFeature”: {
-“type”: “boolean”,
-“default”: true,
-“description”: “Enable or disable the special feature (토글)”
-},
-“myExt.customMessage”: {
-“type”: “string”,
-“default”: “Hello!”,
-“description”: “Set a custom message (문자열 입력)”
-}
-}
-}
-}</p>
-<p>import * as vscode from ‘vscode’;</p>
-<p>export function activate(context: vscode.ExtensionContext) {
-const config = vscode.workspace.getConfiguration(‘myExt’);</p>
-<pre><code>const isEnabled = config.get&lt;boolean&gt;('enableFeature');
-const message = config.get&lt;string&gt;('customMessage');
-
-if (isEnabled) {
-    vscode.window.showInformationMessage(`Feature is enabled! Message: ${message}`);
-}
-
-// 설정 변경 감지
-vscode.workspace.onDidChangeConfiguration(event =&gt; {
-    if (event.affectsConfiguration('myExt.enableFeature') || event.affectsConfiguration('myExt.customMessage')) {
-        const newConfig = vscode.workspace.getConfiguration('myExt');
-        const newEnabled = newConfig.get&lt;boolean&gt;('enableFeature');
-        const newMessage = newConfig.get&lt;string&gt;('customMessage');
-
-        vscode.window.showInformationMessage(`Updated! Enabled: ${newEnabled}, Message: ${newMessage}`);
+<pre><code>"contributes": {
+  "configuration": {
+    "title": "My Extension Settings",
+    "properties": {
+      "myExt.enableFeature": {
+        "type": "boolean",
+        "default": true,
+        "description": "Enable or disable the special feature (토글)"
+      },
+      "myExt.customMessage": {
+        "type": "string",
+        "default": "Hello!",
+        "description": "Set a custom message (문자열 입력)"
+      }
     }
-});
+  }
+}
+
+import * as vscode from 'vscode';
+
+export function activate(context: vscode.ExtensionContext) {
+    const config = vscode.workspace.getConfiguration('myExt');
+
+    const isEnabled = config.get&lt;boolean&gt;('enableFeature');
+    const message = config.get&lt;string&gt;('customMessage');
+
+    if (isEnabled) {
+        vscode.window.showInformationMessage(`Feature is enabled! Message: ${message}`);
+    }
+
+    // 설정 변경 감지
+    vscode.workspace.onDidChangeConfiguration(event =&gt; {
+        if (event.affectsConfiguration('myExt.enableFeature') || event.affectsConfiguration('myExt.customMessage')) {
+            const newConfig = vscode.workspace.getConfiguration('myExt');
+            const newEnabled = newConfig.get&lt;boolean&gt;('enableFeature');
+            const newMessage = newConfig.get&lt;string&gt;('customMessage');
+
+            vscode.window.showInformationMessage(`Updated! Enabled: ${newEnabled}, Message: ${newMessage}`);
+        }
+    });
+}
 </code></pre>
-<p>}</p>
 <p>https://code.visualstudio.com/api/references/contribution-points#contributes.configuration</p>
 <p>예제에선 값이 딕셔너리인데, id를 포함한 어레이로 바꾸면 트리형태로 추가됨 - https://github.com/dotnet/vscode-csharp/blob/main/package.json
 “configuration”:
@@ -486,11 +512,11 @@ vscode.window.showInformationMessage - 우측 하단 yes, no</p>
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-abc7f01d.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 

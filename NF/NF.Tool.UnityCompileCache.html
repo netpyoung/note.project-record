@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="kr" class="light sidebar-visible" dir="ltr">
+<html lang="ko" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -24,8 +24,8 @@
         <link rel="icon" href="../favicon-de23e50b.svg">
         <link rel="shortcut icon" href="../favicon-8114d1fc.png">
         <link rel="stylesheet" href="../css/variables-8adf115d.css">
-        <link rel="stylesheet" href="../css/general-2459343d.css">
-        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/general-0392ca55.css">
+        <link rel="stylesheet" href="../css/chrome-fc474251.css">
         <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
@@ -45,10 +45,10 @@
             const path_to_root = "../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-e8da943a.js";
+            window.path_to_searchindex_js = "../searchindex-d08e1f36.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-07df6a44.js"></script>
+        <script src="../toc-be85cc1f.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -190,11 +190,30 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <p>ccache
-sccache</p>
-<p>https://github.com/netpyoung/NF.Tool.UnityCompileCache
-https://netpyoung.github.io/NF.Tool.UnityCompileCache/docs/</p>
-<p>etc - distcc</p>
+                        <h1 id="nftoolunitycompilecache"><a class="header" href="#nftoolunitycompilecache">NF.Tool.UnityCompileCache</a></h1>
+<ul>
+<li><a href="https://github.com/netpyoung/NF.Tool.UnityCompileCache">NF.Tool.UnityCompileCache</a></li>
+<li><a href="https://netpyoung.github.io/NF.Tool.UnityCompileCache/docs/">doc</a></li>
+</ul>
+<h2 id="레코드"><a class="header" href="#레코드">레코드</a></h2>
+<ul>
+<li>IL2CPP로 빌드시 clang.exe로 컴파일이 시작됨. 컴파일 캐쉬를 사용할 수 있으면 시간 절약을 할 수 있을 것임.
+<ul>
+<li>다만 유니티가 clang.exe를 실행하는데 어떻게 캐쉬 실행을 하느냐가 문제인데, wrapper에서 그냥 CreateProcess 호출하면 캐쉬가 오동작함.</li>
+<li>캐쉬 실행시 lpApplicationName과 lpCommandLine을 조절 해줘야함.</li>
+</ul>
+</li>
+</ul>
+<p>dotnet으로 nativeaot로 빠르게 wrapper작성해보고 dotnet은 아무래도 용량이 크니, c/cpp 생각해봤다가 딱히 내 프로젝트고 해서 zig로 작성.</p>
+<h2 id="참고"><a class="header" href="#참고">참고</a></h2>
+<ul>
+<li>https://github.com/dotnet/runtime/blob/eeaef45074f577f35bfd1b6b02a029d4053a9683/src/libraries/System.Diagnostics.Process/src/System/Diagnostics/Process.Windows.cs#L588
+<ul>
+<li>dotnet에선 Interop.Kernel32.CreateProcess시 STARTUPINFO에 null을 넘겨주는것 밖에 없음.</li>
+<li>lpCommandLine에서 argv[0]가 결정됨</li>
+</ul>
+</li>
+</ul>
 
                     </main>
 
@@ -240,11 +259,11 @@ https://netpyoung.github.io/NF.Tool.UnityCompileCache/docs/</p>
 
         <script src="../elasticlunr-ef4e11c1.min.js"></script>
         <script src="../mark-09e88c2c.min.js"></script>
-        <script src="../searcher-c2a407aa.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
 
         <script src="../clipboard-1626706a.min.js"></script>
         <script src="../highlight-abc7f01d.js"></script>
-        <script src="../book-a0b12cfe.js"></script>
+        <script src="../book-c22b7243.js"></script>
 
         <!-- Custom JS scripts -->
 
