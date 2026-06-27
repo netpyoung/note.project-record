@@ -2,7 +2,7 @@
 title = "넷평의 프로젝트 기록"
 description = "note.project-record"
 authors = ["netpyoung"]
-language = "kr"
+language = "ko"
 src = "src"
 
 [preprocessor.toc]
