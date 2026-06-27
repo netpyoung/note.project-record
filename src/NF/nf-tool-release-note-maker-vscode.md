@@ -89,24 +89,16 @@ webview event
 ### 기타
 
 - 흠 나중에 wasm파일 쓸 일 있으면 한번 여기서 테스트 해보고 싶네
+- activationEvents는 정적으로만 지정 가능 → configuration 기반 동적 활성화는 불가
+- 폴더에 파일이 존재하면 메뉴가 생겨서 우클릭해서 확인하고싶었지만, Explorer에서 폴더를 선택할 때마다 발생하는 이벤트는 없음
+- ReleaseNote.config.toml 우클릭 임시파일에 preview를 쓰고 마크다운 렌더
+- resourceFilename == ReleaseNote.config.toml
+- ReleaseNote.config.toml를 config쪽으로 빼야겠네
 
-activationEvents는 정적으로만 지정 가능 → configuration 기반 동적 활성화는 불가
+- https://code.visualstudio.com/api/references/when-clause-contexts#inspect-context-keys-utility
 
-
-폴더에 파일이 존재하면 메뉴가 생겨서 우클릭해서 확인하고싶었지만, Explorer에서 폴더를 선택할 때마다 발생하는 이벤트는 없음
-
-ReleaseNote.config.toml 우클릭 임시파일에 preview를 쓰고 마크다운 렌더
-
-resourceFilename == ReleaseNote.config.toml
-
-ReleaseNote.config.toml를 config쪽으로 빼야겠네
-
-
-https://code.visualstudio.com/api/references/when-clause-contexts#inspect-context-keys-utility
-
+```
 bun add --global yo generator-code
-
-
 
 yo code Hello2 --extensionType=ts --pkgManager=npm --skip-install --gitInit=true --bundler=esbuild --skipOpen
 
@@ -124,19 +116,11 @@ package.json
     ]
   },
   
-  
 const disposable = vscode.commands.registerCommand('helloworld.helloWorld', () => {
 	vscode.window.showInformationMessage('Hello World!');
 });
 
 context.subscriptions.push(disposable);
-
-
-https://github.com/shd101wyy/markdown-preview-enhanced
-
-https://github.com/dev-jonghoonpark/ettk-vscode-extention/
-
-
 
 "menus": {
   "explorer/context": [
@@ -147,13 +131,13 @@ https://github.com/dev-jonghoonpark/ettk-vscode-extention/
 	}
   ]
 }
+```
 
-
-https://esbuild.github.io/
-https://github.com/evanw/esbuild
-
-https://bun.com/docs/bundler/esbuild
-
+- https://github.com/shd101wyy/markdown-preview-enhanced
+- https://github.com/dev-jonghoonpark/ettk-vscode-extention/
+- https://esbuild.github.io/
+- https://github.com/evanw/esbuild
+- https://bun.com/docs/bundler/esbuild
 - Error: Invalid problemMatcher reference: $esbuild-watch
   - https://marketplace.visualstudio.com/items?itemName=connor4312.esbuild-problem-matchers
   
@@ -224,6 +208,7 @@ https://code.visualstudio.com/api/references/activation-events#workspaceContains
 	
 --- 설정
 
+```
 "contributes": {
   "configuration": {
     "title": "My Extension Settings",
@@ -265,7 +250,7 @@ export function activate(context: vscode.ExtensionContext) {
         }
     });
 }
-
+```
 
 
 https://code.visualstudio.com/api/references/contribution-points#contributes.configuration
@@ -281,8 +266,6 @@ https://code.visualstudio.com/api/references/contribution-points#contributes.con
         "id": "a.a.a1",
 		
 		
-
-
 
 
 https://github.com/qjebbs/vscode-plantuml

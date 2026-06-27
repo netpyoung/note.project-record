@@ -1,4 +1,4 @@
-언어
+# 프로그래밍 언어
 
 
 |                             | 중요도 |                      |
@@ -48,14 +48,14 @@ path기반 import/include는 별로
 procedure
   nested procedure 는 딱히
   
-  
+ 
 성능
-SIMD
-SoA (Structure of Arrays) / AoS (Array of Structures)
+- SIMD
+- SoA (Structure of Arrays) / AoS (Array of Structures)
 
 
 배열
-VLA (Variable-Length Array) 하면 좋고, 없으면 아쉬운
+- VLA (Variable-Length Array) 하면 좋고, 없으면 아쉬운
 
 신텍스
 
@@ -84,10 +84,10 @@ label
 - 범위 제외/포함가 잘 들어나는 
 
 툴체인
-gofmt 같은게 있는가
+- gofmt 같은게 있는가
 
 기타
-async 여부
+- async 여부
 
 
 IDE
@@ -97,18 +97,23 @@ IDE
 [Typeless 언어](https://www.youtube.com/watch?v=Has3suZ2qws)
 [좋은 프로그래밍 언어와 기본동작](https://www.youtube.com/watch?v=99XbTaCJfhU)
 
-작업용
-C#
-C++ 별로
-typescript
+## 작업용
+
+- C++
+  - nogc 용
+  - stl 다 없에버리고싶네
+- C#
+  - gc
+- typescript
+  - 웹용
 
 ## 레이더 포착
 
-- zig
- - https://codeberg.org/ziglang/translate-c
-
+- [zig](https://github.com/netpyoung/study.zig)
+- [Beef](https://github.com/netpyoung/study.beef)
 - hylo (formerly Val)
   - https://hylo-lang.org/
+  - https://lukas-prokop.at/articles/2024-11-29-move-semantics-in-rust-cpp-and-hylo
   - 소유권 언어
 	- 라이프타임 'a 안보인다
   - consume이 있어서 rust보다는 코드 읽기 편하네
@@ -119,25 +124,7 @@ typescript
     - [Concurrency Hylomorphism - Lucian Radu Teodorescu - ACCU 2024](https://www.youtube.com/watch?v=k6fI4asLJxo)
     - [Concurrency Approaches: Past, Present, and Future - Lucian Radu Teodorescu - ACCU 2023](https://www.youtube.com/watch?v=uSG240pJGPM)
 
-- Beef 언어
-  - c#문법
-  - exception없고 Result 방식으로 처리
-  - 게임 개발 출신이라는것도 맘에듬
-  - async/await없는건 좀..(그래도 지원 예정)
-  - 일단 지금은 윈도우 개발환경만 있음
-  - ide 지원!
-    - dissassembly도 보여주고 좋네
-  - Brian Fiete (One of the PopCap founders)
-  - [Inside Penny's Big Breakaway - They Made Their Own 3D Engine! - Developer Deep Dive](https://www.youtube.com/watch?v=zmzS9vz6h30)
-    - Penny's Big Breakaway - Evening Star
-  - Mixin은 함수와 비슷해 보이지만, 컴파일 타임에 코드를 호출 부위로 직접 주입
-    - inline 컴파일 지시
-    - mixin - AST 복사
-  - object boxing이 있지만, gc가 없으니 해제 수동
-  - fin언어도 c# 문법을 https://github.com/fin-language/fin
-
 ## 그 다음 레이더
-
 
 - swift
   - async/await가 있네?
@@ -164,6 +151,8 @@ typescript
 
 - crystal
   - ruby문법 static typed. 아직 ide 문제. 컴파일 속도가 느림.
+  - gc언어
+    - stdlib가 gc종속
   - https://crystal-lang.org/
   - async/await가 없는건 별로
   - try/catch( rescue ) 있는건 별로
@@ -177,7 +166,7 @@ typescript
   - 애증
 - racket/scheme
 - clojure
-  - 별로
+  - 별로. 특히 콜드런 시간
   - return문이 없음
   - try/catch, async지원 별로
 - jscl - https://github.com/jscl-project/jscl
@@ -219,6 +208,20 @@ hylo빼면 별로.. 특히 rust는 작성하기 짜증난다
 
 - dart
   - 구글
+  - gc
+- dlang
+  - async/await 없음
+  - gc랑 nogc 섞임
+  - d 1.x
+    - 라이브러리 진영 분열
+	  - Phobos (표준 라이브러리) - 구식 소리 들음
+	  - Tango (커뮤니티 라이브러리)
+  - d 2.x
+    - 런타임 분리 - Druntime (GC, Thread, Exception, TypeInfo)
+	  - `@nogc` 로 gc 안쓰거나
+      -	`-betterC`로 런타임 의존성 자체를 제거하거나
+    - Phobos 업그레이드 되고 Tango는 안씀
+	
 
 ### go 계열
 
@@ -246,28 +249,38 @@ hylo빼면 별로.. 특히 rust는 작성하기 짜증난다
 
 ## 별로
 
-ada
-pascal
+- ada
+- pascal
+  - https://github.com/fpc
 
 
 ### ML계열
 
-F#
-OCaml
-Prolog
+- F#
+- OCaml
+- Prolog
 
 ### Haskell 계열
 
-Haskell Elm
+- Haskell
+- Elm
 
 
 ### python 계열 
+
 - nim
   - python문법이 살짝 걸리긴해도 async/await 있네
+  - gc언어
+    - gc 선택 가능
+    - stdlib가 gc종속
   - try/catch 있는건 별로
   - transpiler라 조금 걸리긴 하는데
-- erg
+  - 메타프로그래밍 능력이 강하네
+    - macro자체가 c# syntaxtree 조작하는것 처럼 되어있네
+	- 그래서 template가 있나.. 이 부분은 crystal이 더 나은것 같긴한데
 - mojo
+- erg - python에 type만 강화한것
+
 
 ### haxe - https://haxe.org/
 
@@ -323,6 +336,7 @@ Haskell Elm
   - luau - https://luau.org/
     - https://github.com/nuskey8/luau-dotnet
     - https://github.com/sssooonnnggg/luau-debugger
+  - Terra - https://terralang.org/
   
 
 - chaiscript

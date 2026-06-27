@@ -2,7 +2,8 @@
 
 ## 결론
 
-결론은 반대. 자동으로 뽑는건 필요하지만, 커밋 기반으로 뽑는것은 아니다.
+- 결론은 반대. 자동으로 뽑는건 필요하지만, 커밋 기반으로 뽑는것은 아니다.
+- [NF.Tool.ReleaseNoteMaker](../NF/NF.Tool.ReleaseNoteMaker.md) 를 쓰자
 
 ## 시도
 

@@ -1,42 +1,30 @@
 # Sample.Zig.Tunneler
 
-https://tunneler.org/
-
-Geoffrey Silverton
-
-
-SDL Tunneler v.1.1.1 - sdl 1.2.0
-
-
-- Taneli Kalvas
-  - https://users.jyu.fi/~tvkalvas/
-- https://users.jyu.fi/~tvkalvas/code/tunneler/
-- https://github.com/guyromm/tunneler
-
-Raymond Myers tunneltanks-0.4  - sdl 1.2.10
-
-
-https://sourceforge.net/projects/ditchers/
-https://ditchers.sourceforge.net/
-
-https://app.zdechov.net/Tunneler/
-
-Tech
-
-
-Installation and configuring
+- [Sample.Zig.Tunneler](https://github.com/netpyoung/Sample.Zig.Tunneler)
 
 ## record
 
-zig 연습용 클론코딩
-SDL Tunneler v.1.1.1 이건
-- 이걸 봤다
+zig 연습용 클론코딩. zig언어 보면서 뭔가 하나 해보고 싶었음. 스캔 돌리다가 tunneler가 기본 코드도 있고 sdl기반이라 간단해 보였음.
 
+## tunneler
+
+- https://tunneler.org/
+  - by Geoffrey Silverton
+- SDL Tunneler v.1.1.1 - sdl 1.2.0
+  - Taneli Kalvas
+    - https://users.jyu.fi/~tvkalvas/
+  - https://users.jyu.fi/~tvkalvas/code/tunneler/
+  - https://github.com/guyromm/tunneler
+- Raymond Myers tunneltanks-0.4  - sdl 1.2.10
+- https://ditchers.sourceforge.net/
+  - https://sourceforge.net/projects/ditchers/
+- https://app.zdechov.net/Tunneler/
 
 ## TODO
 
 - https://tunneler.org/overview/#more-12
 
+```
 press any key
 
 shoots fired
@@ -45,27 +33,26 @@ percent hit (shoots hit/shoots fired)%
 
 meters dug
 meters travelled
+```
 
 ## static library?
 
 용량이 너무 커지는데
-https://wiki.libsdl.org/SDL3/Tutorials
 
 
 
-https://github.com/opengaming/osgameclones
-https://osgameclones.com/?
 
-- 
-https://github.com/krystiankaluzny/Tanks
+## 다음으로 참고용으로 메모해둠
+
+- https://osgameclones.com/?
+  - https://github.com/opengaming/osgameclones
+- https://github.com/krystiankaluzny/Tanks
 
 tetris ? - https://github.com/mmatyas/openblok
 
 sdls - https://www.parallelrealities.co.uk/news/
 
-f1spirit
-https://f1spirit.jorito.net/
-
+- f1spirit - https://f1spirit.jorito.net/
 - supermario - https://github.com/AnthonySturdy/SDL-Mario-Bros.
 - galaga
   - https://github.com/abdullahmaswadeh/galaga
@@ -94,16 +81,11 @@ elastomania - https://github.com/elastomania/elma-classic
   - https://github.com/wesz/gusanos
 - https://www.openlierox.net/
 - https://github.com/albertz/openlierox
-
-
-https://github.com/david-vanderson/dvui
-
-### zine
-
+- https://github.com/david-vanderson/dvui
 
 ## raylib ?
 
-
+``` zig
 const c = @cImport({
     @cInclude("SDL3/SDL.h");
 });
@@ -152,3 +134,4 @@ pub fn main() !void {
         });
     }
 }
+```

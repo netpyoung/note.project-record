@@ -32,3 +32,15 @@ dev-journey
 - 📓도 note라서 생각했지만, 팬을 넣는게 좀 더 느낌이 있어 보인다.
 - 📝도 팬이 달려있어 고려해봤는데 종이장이 study.에서 쓰이는 거랑 겹친다.
 -  ✒️ 펜촉을 써본적이 없지만. 뭔가 느낌이 있어 노트의 아이콘은 이걸로 하겠다.
+
+
+## 언어코드 ko ! kr ??
+
+어느날 다른 공부 노트쪽에 [PR](https://github.com/netpyoung/study.dev-notes/pull/1)이 올라왔다.
+그냥 한국이니까 kr썼는데 
+
+- https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes
+  - kr - https://www.loc.gov/standards/iso639-2/php/langcodes-keyword.php?SearchType=iso_639_1&SearchTerm=kr
+    - 나이지리아 카누리(Kanuri) 민족
+
+아.... ko로 가야 맞는거구나... 여튼 어디서 유입이 되었는지 모르겠지만 PR이 와서 감사했다.

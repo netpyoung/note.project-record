@@ -10,7 +10,7 @@
 
 3명이서 해봤는데 adr 드라이븐을 강제해서 해봤다. 찬반으로 해서 결정하는건데 결정이 더 느리고 통과할때까지 문서만 바꾸느라 진도가 안나감.
 
-
+```
 Title: 제목
 Decision: 결정
 Issue:
@@ -23,11 +23,26 @@ Expected Result: 예상결과 / Consequences 결과
 과정
 원인
 해결책
-
+```
 
 ## Ref: 
 
+- https://github.blog/2020-08-13-why-write-adrs/
+- https://github.com/joelparkerhenderson/architecture-decision-record
+
+
+- 템플릿
+  - https://github.com/joelparkerhenderson/architecture-decision-record/blob/main/templates/decision-record-template-madr/index.md
+  - https://github.com/joelparkerhenderson/architecture-decision-record/blob/main/templates/decision-record-template-by-michael-nygard/index.md
+  - init / new / add
+
+- 예제
+  - https://github.com/joelparkerhenderson/architecture-decision-record/blob/main/examples/programming-languages/index.md
+
 - [Documenting Architecture Decisions - Michael Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions)
+- https://en.wikipedia.org/wiki/Architectural_decision
 - [npryce/adr-tools](https://github.com/npryce/adr-tools) - GPL
 - <https://github.com/phodal/adr> - MIT
+- https://bitbucket.org/tinkerer_/adr-tools-python/src/master/
 - <https://github.com/joelparkerhenderson/architecture-decision-record>
+- <https://pypi.org/project/adr-tools-python/>
